@@ -41,7 +41,7 @@ namespace Client
 
         public static bool Shift, Alt, Ctrl, Tilde;
         public static KeyBindSettings InputKeys = new KeyBindSettings();
-        public static Language lan = new Language();
+        public static Language lan = new Language("language.txt");
 
         public CMain()
         {

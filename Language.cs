@@ -9,18 +9,18 @@ public class Language
 {
     private Dictionary<string, string> strings = new Dictionary<string, string>();
 
-    public Language()
+    public Language(string path)
     {
-        Load();
+        Load(path);
     }
 
-    public void Load()
+    public void Load(string path)
     {
         try
         {
             List<string> contents = new List<string>();
-            if (File.Exists(@".\Configs\language.txt"))
-                contents.AddRange(File.ReadAllLines(@".\Configs\language.txt"));
+            if (File.Exists(path))
+                contents.AddRange(File.ReadAllLines(path));
 
             for (int i = 0; i < contents.Count; ++i)
             {

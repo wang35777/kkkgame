@@ -478,7 +478,7 @@ namespace Server
             LoadGoods();
             LoadGem();
 
-            lan = new Language();
+            lan = new Language(@"./Configs/language.txt");
         }
         public static void Save()
         {
