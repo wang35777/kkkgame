@@ -13,8 +13,8 @@ namespace Client.MirMagic
         static MagicMgr()
         {
             MagicTable.Add(Spell.LuoHanGunFa, new LuoHanGunFa());
-            MagicTable.Add(Spell.LuoHanGunFa, new JinGangGunFa());
-            MagicTable.Add(Spell.DaMoGunFa, new XiangMoFuFa());
+            MagicTable.Add(Spell.JinGangGunFa, new JinGangGunFa());
+            MagicTable.Add(Spell.XiangLongGunFa, new XiangMoFuFa());
         }
 
         public static BaseMagic Get(Spell spell)
