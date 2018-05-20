@@ -120,7 +120,7 @@ namespace Client.MirScenes.Dialogs
             };
             StatePage.BeforeDraw += (o, e) =>
             {
-                ExpPLabel.Text = string.Format("{0:0.##%}", MapObject.User.Experience / (double)MapObject.User.MaxExperience);
+                ExpPLabel.Text = string.Format("{0}/{1}", MapObject.User.Experience, (double)MapObject.User.MaxExperience);
                 BagWLabel.Text = string.Format("{0}/{1}", MapObject.User.CurrentBagWeight, MapObject.User.MaxBagWeight);
                 WearWLabel.Text = string.Format("{0}/{1}", MapObject.User.CurrentWearWeight, MapObject.User.MaxWearWeight);
                 HandWLabel.Text = string.Format("{0}/{1}", MapObject.User.CurrentHandWeight, MapObject.User.MaxHandWeight);
