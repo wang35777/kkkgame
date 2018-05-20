@@ -149,24 +149,25 @@ namespace Server.MirDatabase
         public ClientMagic CreateClientMagic()
         {
             return new ClientMagic
-                {
-                    Spell = Spell,
-                    BaseCost = Info.BaseCost,
-                    LevelCost = Info.LevelCost,
-                    Icon = Info.Icon,
-                    Level1 = Info.Level1,
-                    Level2 = Info.Level2,
-                    Level3 = Info.Level3,
-                    Need1 = Info.Need1,
-                    Need2 = Info.Need2,
-                    Need3 = Info.Need3,
-                    Level = Level,
-                    Key = Key,
-                    Experience = Experience,
-                    IsTempSpell = IsTempSpell,
-                    Delay = GetDelay(),
-                    Range = Info.Range,
-                    CastTime = (CastTime != 0) && (SMain.Envir.Time > CastTime)? SMain.Envir.Time - CastTime: 0
+            {
+                Spell = Spell,
+                BaseCost = Info.BaseCost,
+                LevelCost = Info.LevelCost,
+                Icon = Info.Icon,
+                Level1 = Info.Level1,
+                Level2 = Info.Level2,
+                Level3 = Info.Level3,
+                Need1 = Info.Need1,
+                Need2 = Info.Need2,
+                Need3 = Info.Need3,
+                Level = Level,
+                Key = Key,
+                Experience = Experience,
+                IsTempSpell = IsTempSpell,
+                Delay = GetDelay(),
+                Range = Info.Range,
+                CastTime = (CastTime != 0) && (SMain.Envir.Time > CastTime) ? SMain.Envir.Time - CastTime : 0,
+                Name = Info.Name
             };
         }
 

@@ -100,7 +100,7 @@ namespace Client.MirScenes.Dialogs
         {
             Magic = magic;
 
-            NameLabel.Text = Magic.Spell.ToString();
+            NameLabel.Text = Magic.Name;
 
             LevelLabel.Text = Magic.Level.ToString();
             switch (Magic.Level)

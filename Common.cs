@@ -3779,6 +3779,7 @@ public class ClientMagic
 
     public bool IsTempSpell;
     public long CastTime, Delay;
+    public string Name;
 
     public ClientMagic()
     {
@@ -3806,6 +3807,7 @@ public class ClientMagic
 
         Range = reader.ReadByte();
         CastTime = reader.ReadInt64();
+        Name = reader.ReadString();
     }
 
     public void Save(BinaryWriter writer)
@@ -3830,6 +3832,7 @@ public class ClientMagic
 
         writer.Write(Range);
         writer.Write(CastTime);
+        writer.Write(Name);
     }
    
 }
