@@ -214,6 +214,35 @@ namespace Server.MirEnvir
             return false;
         }
 
+        //User DB
+        //public int NextAccountID, NextCharacterID;
+        //public ulong NextUserItemID, NextAuctionID, NextMailID
+        public int GenerateAccountId()
+        {
+            return ++NextAccountID * 1000 + Settings.RegionId;
+        }
+
+        public int GenerateCharacterId()
+        {
+            return ++NextCharacterID * 1000 + Settings.RegionId; ;
+        }
+
+        public ulong GenerateUserItemId()
+        {
+            return ++NextUserItemID * 1000 + (ulong)Settings.RegionId; ;
+        }
+
+        public ulong GenerateAuctionId()
+        {
+            return ++NextAuctionID * 1000 + (ulong)Settings.RegionId; ;
+        }
+
+        public ulong GenerateMailId()
+        {
+            return ++NextMailID * 1000 + (ulong)Settings.RegionId; ;
+        }
+
+
         private void UpdateMagicInfo()
         {
             for (int i = 0; i < MagicInfoList.Count; i++)
@@ -1405,7 +1434,7 @@ namespace Server.MirEnvir
                         {
                             if (auction.Sold && auction.Expired) auction.Expired = false;
 
-                            auction.AuctionID = ++NextAuctionID;
+                            auction.AuctionID = GenerateAuctionId();
                         }
                     }
 
@@ -2189,7 +2218,7 @@ namespace Server.MirEnvir
                     return;
                 }
 
-                AccountList.Add(new AccountInfo(p) {Index = ++NextAccountID, CreationIP = c.IPAddress});
+                AccountList.Add(new AccountInfo(p) {Index = GenerateAccountId(), CreationIP = c.IPAddress});
 
 
                 c.Enqueue(new ServerPackets.NewAccount {Result = 8});
@@ -2399,7 +2428,7 @@ namespace Server.MirEnvir
                     return;
                 }
 
-                CharacterInfo info = new CharacterInfo(p, c) { Index = ++NextCharacterID, AccountInfo = c.Account };
+                CharacterInfo info = new CharacterInfo(p, c) { Index = GenerateCharacterId(), AccountInfo = c.Account };
 
                 c.Account.Characters.Add(info);
                 CharacterList.Add(info);
@@ -2484,7 +2513,7 @@ namespace Server.MirEnvir
 
         public void CreateAccountInfo()
         {
-            AccountList.Add(new AccountInfo {Index = ++NextAccountID});
+            AccountList.Add(new AccountInfo {Index = GenerateAccountId()});
         }
         public void CreateMapInfo()
         {
@@ -2553,7 +2582,7 @@ namespace Server.MirEnvir
         {
             UserItem item = new UserItem(info)
                 {
-                    UniqueID = ++NextUserItemID,
+                    UniqueID = GenerateUserItemId(),
                     CurrentDura = info.Durability,
                     MaxDura = info.Durability
                 };
@@ -2572,7 +2601,7 @@ namespace Server.MirEnvir
 
             UserItem item = new UserItem(info)
                 {
-                    UniqueID = ++NextUserItemID,
+                    UniqueID = GenerateUserItemId(),
                     MaxDura = info.Durability,
                     CurrentDura = (ushort) Math.Min(info.Durability, Random.Next(info.Durability) + 1000)
                 };
@@ -2591,7 +2620,7 @@ namespace Server.MirEnvir
 
             UserItem item = new UserItem(info)
             {
-                UniqueID = ++NextUserItemID,
+                UniqueID = GenerateUserItemId(),
                 CurrentDura = info.Durability,
                 MaxDura = info.Durability,
             };

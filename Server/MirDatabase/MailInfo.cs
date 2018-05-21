@@ -46,7 +46,6 @@ namespace Server.MirEnvir
 
         public MailInfo(int recipientIndex, bool canReply = false)
         {
-            MailID = ++SMain.Envir.NextMailID;
             RecipientIndex = recipientIndex;
 
             CanReply = canReply;

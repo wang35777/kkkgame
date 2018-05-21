@@ -226,10 +226,5 @@ namespace Server.MirDatabase
 
             return Storage.Length;
         }
-
-        public string ToText()
-        {
-            return "";
-        }
     }
 }

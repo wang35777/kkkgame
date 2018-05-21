@@ -444,31 +444,89 @@ namespace Server
             }
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text File|*.txt";
+            ofd.Filter = "MirADB File|*.MirADB";
             ofd.ShowDialog();
 
             if (ofd.FileName == string.Empty) return;
 
             string filepath = ofd.FileName;
 
-
             if (MessageBox.Show("确定合并数据", "Notice",
                MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
+                var accounts = new HashSet<string>();
+                var charactorNames = new HashSet<string>();
+                var guildNames = new HashSet<string>();
+
+                List<AccountInfo> accountList = SMain.Envir.AccountList;
+                for (int i = 0; i < accountList.Count; ++i)
+                {
+                    AccountInfo accountInfo = accountList[i];
+                    accounts.Add(accountInfo.AccountID);
+
+                    for (int j=0; j< accountInfo.Characters.Count; ++j)
+                        charactorNames.Add(accountInfo.Characters[i].Name);
+                }
+
+                List<GuildObject> guilds = SMain.Envir.GuildList;
+                for (int i=0; i<guilds.Count; ++i)
+                {
+                    guildNames.Add(guilds[i].Name);
+                }
+
+
                 DBFile dbFile = new DBFile();
                 dbFile.load(filepath);
 
-                for (int i=0;i<dbFile.AccountList.Count; ++i)
-                    SMain.Envir.AccountList.Add(dbFile.AccountList[i]);
+                List<AccountInfo> otherAccountList = dbFile.AccountList;
+                for (int i = 0; i < otherAccountList.Count; ++i)
+                {
+                    if (accounts.Contains(otherAccountList[i].AccountID))
+                        otherAccountList[i].AccountID = GenerateNewName(charactorNames, otherAccountList[i].AccountID);
+
+                    List<CharacterInfo> otherCharacters = otherAccountList[i].Characters;
+                    for (int j = 0; j < otherCharacters.Count; ++j)
+                    {
+                        if (charactorNames.Contains(otherCharacters[i].Name))
+                            otherCharacters[i].Name = GenerateNewName(charactorNames, otherCharacters[i].Name);
+                    }
+
+                    SMain.Envir.AccountList.Add(otherAccountList[i]);
+                }
+
 
                 foreach (AuctionInfo auction in dbFile.Auctions)
                     SMain.Envir.Auctions.AddLast(auction);
 
-                for (int i = 0; i < dbFile.GuildList.Count; ++i)
-                    SMain.Envir.GuildList.Add(dbFile.GuildList[i]);
+                List<GuildObject> otherGuildList = dbFile.GuildList;
+                for (int i = 0; i < otherGuildList.Count; ++i)
+                {
+                    if (guildNames.Contains(otherGuildList[i].Name))
+                        otherGuildList[i].Name = GenerateNewName(guildNames, otherGuildList[i].Name);
+
+                    SMain.Envir.GuildList.Add(otherGuildList[i]);
+                }
 
                 MessageBox.Show("合并完成", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+
+        private string GenerateNewName(HashSet<string> names, string oldName)
+        {
+            for (int j = 'a'; j < 'z'; ++j)
+            {
+                string newName = oldName + (char)j;
+                if (!names.Contains(newName))
+                {
+                    names.Add(newName);
+                    SMain.Enqueue(string.Format("Merge Region, rename {0} > {1}", oldName, newName));
+                    return newName;
+                }
+            }
+
+            SMain.Enqueue(string.Format("Merge Region failed, rename {0}", oldName));
+            return oldName;
+        }
+
     }
 }

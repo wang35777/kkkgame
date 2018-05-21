@@ -14787,7 +14787,7 @@ namespace Server.MirObjects
 
                 AuctionInfo auction = new AuctionInfo
                 {
-                    AuctionID = ++Envir.NextAuctionID,
+                    AuctionID = Envir.GenerateAuctionId(),
                     CharacterIndex = Info.Index,
                     CharacterInfo = Info,
                     ConsignmentDate = Envir.Now,
@@ -17687,7 +17687,7 @@ namespace Server.MirObjects
             //Create parcel
             MailInfo mail = new MailInfo(player.Index, true)
             {
-                MailID = ++Envir.NextMailID,
+                MailID = Envir.GenerateMailId(),
                 Sender = Info.Name,
                 Message = message,
                 Gold = gold,
@@ -19810,7 +19810,7 @@ namespace Server.MirObjects
 
             MailInfo mail = new MailInfo(Info.Index)
                 {
-                    MailID = ++Envir.NextMailID,
+                    MailID = Envir.GenerateMailId(),
                     Sender = "Gameshop",
                     Message = "Thank you for your purchase from the Gameshop. Your item(s) are enclosed.",
                     Items = mailItems,

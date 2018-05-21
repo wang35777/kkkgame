@@ -1,0 +1,6 @@
+D:\mywork2018\mir2-wang35777\UnitTest\bin\Debug\UnitTest.exe.config
+D:\mywork2018\mir2-wang35777\UnitTest\bin\Debug\UnitTest.exe
+D:\mywork2018\mir2-wang35777\UnitTest\bin\Debug\UnitTest.pdb
+D:\mywork2018\mir2-wang35777\UnitTest\obj\Debug\UnitTest.csprojResolveAssemblyReference.cache
+D:\mywork2018\mir2-wang35777\UnitTest\obj\Debug\UnitTest.exe
+D:\mywork2018\mir2-wang35777\UnitTest\obj\Debug\UnitTest.pdb

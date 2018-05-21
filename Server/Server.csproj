@@ -421,6 +421,9 @@
     <EmbeddedResource Include="MirForms\Database\MagicInfoForm.resx">
       <DependentUpon>MagicInfoForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MirForms\ListViewNF.resx">
+      <DependentUpon>ListViewNF.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MirForms\Systems\ConquestInfoForm.resx">
       <DependentUpon>ConquestInfoForm.cs</DependentUpon>
     </EmbeddedResource>
