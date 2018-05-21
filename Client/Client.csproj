@@ -179,10 +179,8 @@
     <Compile Include="MirGraphics\MLibrary.cs" />
     <Compile Include="MirMagic\BaseMagic.cs" />
     <Compile Include="MirMagic\JinGangGunFa.cs" />
-    <Compile Include="MirMagic\FireBall.cs" />
     <Compile Include="MirMagic\LuoHanGunFa.cs" />
     <Compile Include="MirMagic\MagicMgr.cs" />
-    <Compile Include="MirMagic\ShoulderDash.cs" />
     <Compile Include="MirMagic\XiangMoFuFa.cs" />
     <Compile Include="MirObjects\AssistHelper.cs" />
     <Compile Include="MirObjects\Buff.cs" />

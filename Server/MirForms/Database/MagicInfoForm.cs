@@ -663,7 +663,7 @@ namespace Server
             this.txtSkillIcon.Name = "txtSkillIcon";
             this.txtSkillIcon.Size = new System.Drawing.Size(41, 21);
             this.txtSkillIcon.TabIndex = 2;
-            this.txtSkillIcon.TextChanged += new System.EventHandler(this.texMagicNameBox_TextChanged);
+            this.txtSkillIcon.TextChanged += new System.EventHandler(this.txtSkillIcon_TextChanged);
             // 
             // label1
             // 
