@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using Server.MirDatabase;
 using Server.MirEnvir;
 using Server.MirObjects;
+using System.IO;
 
 namespace Server
 {
@@ -528,5 +529,44 @@ namespace Server
             return oldName;
         }
 
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            if (SMain.Envir.Running)
+            {
+                MessageBox.Show("Cannot delete while the server is running", "Notice",
+                MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            if (MessageBox.Show("确定删除数据", "Notice",
+              MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk) == DialogResult.Yes)
+            {
+                try
+                {
+
+                    List<AccountInfo> accountList = SMain.Envir.AccountList;
+                    if (_selectedAccountInfos.Count == 0)
+                    {
+                        MessageBox.Show("没有选中", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        return;
+                    }
+
+                    for (int i = accountList.Count - 1; i >= 0; i--)
+                    {
+                        if (_selectedAccountInfos.Contains(accountList[i]))
+                        {
+                            accountList.RemoveAt(i);
+                            SMain.Enqueue(string.Format("删除账号 {0}", accountList[i].AccountID));
+                        }
+                    }
+                    RefreshInterface();
+                }
+                catch (Exception ex)
+                {
+                    File.AppendAllText(Settings.LogPath + "Error Log (" + DateTime.Now.Date.ToString("dd-MM-yyyy") + ").txt",
+                                               String.Format("[{0}]: {1}" + Environment.NewLine, DateTime.Now, ex.ToString()));
+                }
+            }
+        }
     }
 }

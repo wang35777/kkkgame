@@ -78,6 +78,7 @@
             this.MatchFilterCheckBox = new System.Windows.Forms.CheckBox();
             this.WipeCharButton = new System.Windows.Forms.Button();
             this.mergeBtn = new System.Windows.Forms.Button();
+            this.DeleteButton = new System.Windows.Forms.Button();
             this.AccountInfoPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,7 +97,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 12);
+            this.label1.Size = new System.Drawing.Size(59, 12);
             this.label1.TabIndex = 11;
             this.label1.Text = "搜索账号:";
             // 
@@ -121,6 +122,7 @@
             // 
             this.AccountInfoPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.AccountInfoPanel.Controls.Add(this.DeleteButton);
             this.AccountInfoPanel.Controls.Add(this.AdminCheckBox);
             this.AccountInfoPanel.Controls.Add(this.PermBanButton);
             this.AccountInfoPanel.Controls.Add(this.WeekBanButton);
@@ -162,7 +164,7 @@
             this.AdminCheckBox.AutoSize = true;
             this.AdminCheckBox.Location = new System.Drawing.Point(207, 16);
             this.AdminCheckBox.Name = "AdminCheckBox";
-            this.AdminCheckBox.Size = new System.Drawing.Size(102, 16);
+            this.AdminCheckBox.Size = new System.Drawing.Size(60, 16);
             this.AdminCheckBox.TabIndex = 32;
             this.AdminCheckBox.Text = "管理员";
             this.AdminCheckBox.UseVisualStyleBackColor = true;
@@ -203,7 +205,7 @@
             this.BannedCheckBox.AutoSize = true;
             this.BannedCheckBox.Location = new System.Drawing.Point(523, 144);
             this.BannedCheckBox.Name = "BannedCheckBox";
-            this.BannedCheckBox.Size = new System.Drawing.Size(60, 16);
+            this.BannedCheckBox.Size = new System.Drawing.Size(72, 16);
             this.BannedCheckBox.TabIndex = 28;
             this.BannedCheckBox.Text = "是否封号";
             this.BannedCheckBox.UseVisualStyleBackColor = true;
@@ -222,7 +224,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(324, 145);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(77, 12);
+            this.label14.Size = new System.Drawing.Size(59, 12);
             this.label14.TabIndex = 26;
             this.label14.Text = "解封日期:";
             // 
@@ -239,7 +241,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(319, 121);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(71, 12);
+            this.label13.Size = new System.Drawing.Size(59, 12);
             this.label13.TabIndex = 24;
             this.label13.Text = "封号原因:";
             // 
@@ -256,7 +258,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(332, 90);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 12);
+            this.label11.Size = new System.Drawing.Size(83, 12);
             this.label11.TabIndex = 22;
             this.label11.Text = "最后登陆日期:";
             // 
@@ -273,7 +275,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(345, 66);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(53, 12);
+            this.label12.Size = new System.Drawing.Size(71, 12);
             this.label12.TabIndex = 20;
             this.label12.Text = "最后登陆IP:";
             // 
@@ -290,7 +292,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(313, 42);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 12);
+            this.label9.Size = new System.Drawing.Size(59, 12);
             this.label9.TabIndex = 18;
             this.label9.Text = "建立日期:";
             // 
@@ -307,7 +309,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(326, 18);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(77, 12);
+            this.label10.Size = new System.Drawing.Size(71, 12);
             this.label10.TabIndex = 16;
             this.label10.Text = "建立账户IP:";
             // 
@@ -324,7 +326,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(12, 169);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 12);
+            this.label8.Size = new System.Drawing.Size(35, 12);
             this.label8.TabIndex = 14;
             this.label8.Text = "邮箱:";
             // 
@@ -341,7 +343,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(44, 145);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 12);
+            this.label7.Size = new System.Drawing.Size(35, 12);
             this.label7.TabIndex = 12;
             this.label7.Text = "答案:";
             // 
@@ -358,7 +360,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(37, 121);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 12);
+            this.label6.Size = new System.Drawing.Size(35, 12);
             this.label6.TabIndex = 10;
             this.label6.Text = "问题:";
             // 
@@ -375,7 +377,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(32, 97);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(71, 12);
+            this.label5.Size = new System.Drawing.Size(59, 12);
             this.label5.TabIndex = 8;
             this.label5.Text = "出生日期:";
             // 
@@ -392,7 +394,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(26, 73);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 12);
+            this.label4.Size = new System.Drawing.Size(35, 12);
             this.label4.TabIndex = 6;
             this.label4.Text = "姓名:";
             // 
@@ -409,7 +411,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(33, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.Size = new System.Drawing.Size(35, 12);
             this.label3.TabIndex = 4;
             this.label3.Text = "密码:";
             // 
@@ -426,7 +428,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 12);
+            this.label2.Size = new System.Drawing.Size(35, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "账户:";
             // 
@@ -435,7 +437,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(214, 39);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(89, 12);
+            this.label15.Size = new System.Drawing.Size(95, 12);
             this.label15.TabIndex = 15;
             this.label15.Text = "账户下的角色名:";
             // 
@@ -533,13 +535,23 @@
             // 
             // mergeBtn
             // 
-            this.mergeBtn.Location = new System.Drawing.Point(231, 7);
+            this.mergeBtn.Location = new System.Drawing.Point(235, 9);
             this.mergeBtn.Name = "mergeBtn";
             this.mergeBtn.Size = new System.Drawing.Size(90, 23);
             this.mergeBtn.TabIndex = 19;
             this.mergeBtn.Text = "导入合区数据";
             this.mergeBtn.UseVisualStyleBackColor = true;
             this.mergeBtn.Click += new System.EventHandler(this.MergeButton_Click);
+            // 
+            // DeleteButton
+            // 
+            this.DeleteButton.Location = new System.Drawing.Point(511, 12);
+            this.DeleteButton.Name = "DeleteButton";
+            this.DeleteButton.Size = new System.Drawing.Size(75, 23);
+            this.DeleteButton.TabIndex = 33;
+            this.DeleteButton.Text = "删除账号";
+            this.DeleteButton.UseVisualStyleBackColor = true;
+            this.DeleteButton.Click += new System.EventHandler(this.DeleteBtn_Click);
             // 
             // AccountInfoForm
             // 
@@ -619,5 +631,6 @@
         private System.Windows.Forms.CheckBox MatchFilterCheckBox;
         private System.Windows.Forms.Button WipeCharButton;
         private System.Windows.Forms.Button mergeBtn;
+        private System.Windows.Forms.Button DeleteButton;
     }
 }
