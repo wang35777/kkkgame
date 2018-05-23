@@ -14,7 +14,7 @@ namespace Client.MirMagic
         {
             MagicTable.Add(Spell.LuoHanGunFa, new LuoHanGunFa());
             MagicTable.Add(Spell.JinGangGunFa, new JinGangGunFa());
-            MagicTable.Add(Spell.XiangLongGunFa, new XiangMoFuFa());
+            MagicTable.Add(Spell.DaMoGunFa, new DaMoGunFa());
         }
 
         public static BaseMagic Get(Spell spell)

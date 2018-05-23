@@ -15,7 +15,7 @@ using Client.MirGraphics;
 namespace Client.MirMagic
 {
     // 仿烈火
-    class XiangMoFuFa : BaseMagic
+    class DaMoGunFa : BaseMagic
     {
         public override void OnUseSpell(PlayerObject player, ClientMagic magic)
         {

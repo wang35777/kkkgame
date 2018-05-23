@@ -21,7 +21,7 @@ namespace Client.MirMagic
             GameScene scene = GameScene.Scene;
             if (CMain.Time < scene.ToggleTime) return;
             GameScene.LuoHanGunFa = !GameScene.LuoHanGunFa;
-            scene.ChatDialog.ReceiveChat(GameScene.LuoHanGunFa ? "Use LuoHanGunFa." : "Do not use LuoHanGunFa.", ChatType.Hint);
+            scene.ChatDialog.ReceiveChat(GameScene.LuoHanGunFa ? "开启罗汉棍法" : "关闭罗汉棍法", ChatType.Hint);
             scene.ToggleTime = CMain.Time + 1000;
             Network.Enqueue(new C.SpellToggle { Spell = magic.Spell, CanUse = GameScene.LuoHanGunFa });
         }

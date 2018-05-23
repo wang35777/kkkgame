@@ -22,7 +22,7 @@ namespace Client.MirMagic
             GameScene scene = GameScene.Scene;
             if (CMain.Time < scene.ToggleTime) return;
             GameScene.JinGangGunFa = !GameScene.JinGangGunFa;
-            scene.ChatDialog.ReceiveChat(GameScene.DaMoGunFa ? CMain.Tr("Use DaMoGunFan.") : CMain.Tr("Do not DaMoGunFa."), ChatType.Hint);
+            scene.ChatDialog.ReceiveChat(GameScene.JinGangGunFa ? "开启金刚棍法" : "关闭金刚棍法", ChatType.Hint);
             scene.ToggleTime = CMain.Time + 1000;
             Network.Enqueue(new C.SpellToggle { Spell = magic.Spell, CanUse = GameScene.DaMoGunFa });
         }
@@ -33,10 +33,9 @@ namespace Client.MirMagic
                 return;
 
             MirDirection Direction = player.Direction;
-            int SpellLevel = player.SpellLevel;
             int FrameIndex = player.FrameIndex;
             Point DrawLocation = player.DrawLocation;
-            int frame = 48 + ((int)Direction * 16) + SpellLevel * 128 + FrameIndex * 10 / 8;
+            int frame = 48 + ((int)Direction * 16) + FrameIndex * 10 / 8;
             Libraries.Magic4.DrawBlend(frame, DrawLocation, Color.White, true, 0.7F);
         }
     }

@@ -981,7 +981,7 @@ namespace Client.MirObjects
 
                 if (CurrentAction == MirAction.Attack1)
                 {
-                    if (CheckXiangLongFuHu())
+                    if (CheckCanJinGang())
                         CurrentAction = MirAction.JumpDown;
                 }
 
@@ -1606,7 +1606,7 @@ namespace Client.MirObjects
             }
         }
 
-        private bool CheckXiangLongFuHu()
+        private bool CheckCanJinGang()
         {
             if (RidingMount)
                 return false;
@@ -1671,7 +1671,7 @@ namespace Client.MirObjects
                 }
             }
 
-            if (GameScene.DaMoGunFa)
+            if (GameScene.JinGangGunFa)
             {
                 if (TargetObject != null || GameScene.Scene.MapControl.CanHalfMoon(CurrentLocation, Direction))
                 {
