@@ -1268,6 +1268,7 @@ public enum DefenceType : byte
 
 public enum ServerPacketIds : short
 {
+    ServerList,
     Connected,
     ClientVersion,
     Disconnect,
@@ -1513,6 +1514,7 @@ public enum ServerPacketIds : short
 
 public enum ClientPacketIds : short
 {
+    ServerList,
     ClientVersion,
     Disconnect,
     KeepAlive,
@@ -6395,5 +6397,23 @@ public class ClientRecipeInfo
         {
             ingredient.Save(writer);
         }
+    }
+}
+
+public class GameServerInfo
+{
+    public string Name;
+    public int Port;
+
+    public GameServerInfo(BinaryReader reader)
+    {
+        Name = reader.ReadString();
+        Port = reader.ReadInt32();
+    }
+
+    public void Save(BinaryWriter writer)
+    {
+        writer.Write(Name);
+        writer.Write(Port);
     }
 }

@@ -5,6 +5,32 @@ using System.IO;
 
 namespace ServerPackets
 {
+    public sealed class ServerList : Packet
+    {
+        public List<GameServerInfo> servers;
+
+        public override short Index
+        {
+            get { return (short)ServerPacketIds.ServerList; }
+        }
+
+        protected override void ReadPacket(BinaryReader reader)
+        {
+            int count = reader.ReadInt32();
+
+            for (int i = 0; i < count; i++)
+                servers.Add(new GameServerInfo(reader));
+        }
+
+        protected override void WritePacket(BinaryWriter writer)
+        {
+            writer.Write(servers.Count);
+            for (int i=0; i<servers.Count; i++)
+                servers[i].Save(writer);
+        }
+    }
+
+
     public sealed class KeepAlive : Packet
     {
         public override short Index

@@ -5,6 +5,21 @@ using System.Collections.Generic;
 
 namespace ClientPackets
 {
+    public sealed class ServerList : Packet
+    {
+        public override short Index
+        {
+            get { return (short)ClientPacketIds.ServerList; }
+        }
+
+        protected override void ReadPacket(BinaryReader reader)
+        {
+        }
+        protected override void WritePacket(BinaryWriter writer)
+        {
+        }
+    }
+
     public sealed class ClientVersion : Packet
     {
         public override short Index

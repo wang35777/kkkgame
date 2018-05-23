@@ -7,19 +7,14 @@ using S = ServerPackets;
 
 namespace Server.MirNetwork
 {
-    public enum GameStage { None, Login, Select, Game, Disconnected }
-
     public class MirConnection
     {
         public readonly int SessionID;
         public readonly string IPAddress;
 
-        public GameStage Stage;
-
         private TcpClient _client;
         private ConcurrentQueue<Packet> _receiveList;
         private ConcurrentQueue<Packet> _sendList;
-        private Queue<Packet> _retryList;
 
         private bool _disconnecting;
         public bool Connected;
@@ -56,7 +51,6 @@ namespace Server.MirNetwork
             _receiveList = new ConcurrentQueue<Packet>();
             _sendList = new ConcurrentQueue<Packet>();
             _sendList.Enqueue(new S.Connected());
-            _retryList = new Queue<Packet>();
 
             Connected = true;
             BeginReceive();
