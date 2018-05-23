@@ -19,7 +19,6 @@ namespace LoginSrv
 {
     public partial class Form1 : Form
     {
-        private Thread _thread;
         private TcpListener _listener;
         public List<MirConnection> Connections = new List<MirConnection>();
         private int _sessionID;
@@ -28,21 +27,22 @@ namespace LoginSrv
         {
             InitializeComponent();
 
-            _listener.BeginAcceptTcpClient(Connection, null);
+            StartTCPListener();
+        }
 
-            while (true)
-            {
-                lock (Connections)
+        private void InterfaceTimer_Tick(object sender, EventArgs e)
+        {
+               lock (Connections)
                 {
                     for (int i = Connections.Count - 1; i >= 0; i--)
                         Connections[i].Process();
                 }
-            }
         }
 
         private void StartTCPListener()
         {
-            _listener = new TcpListener(IPAddress.Parse("0.0.0.0"), 6000);
+            Packet.IsServer = true;
+            _listener = new TcpListener(IPAddress.Parse("0.0.0.0"), 6500);
             _listener.Start();
             _listener.BeginAcceptTcpClient(Connection, null);
         }

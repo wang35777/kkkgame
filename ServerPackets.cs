@@ -7,7 +7,7 @@ namespace ServerPackets
 {
     public sealed class ServerList : Packet
     {
-        public List<GameServerInfo> servers;
+        public List<GameServerInfo> servers = new List<GameServerInfo>();
 
         public override short Index
         {

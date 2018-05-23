@@ -3,6 +3,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using System.Linq;
+using C = ClientPackets;
 using S = ServerPackets;
 
 namespace Server.MirNetwork
@@ -39,8 +40,6 @@ namespace Server.MirNetwork
             SessionID = sessionID;
             IPAddress = client.Client.RemoteEndPoint.ToString().Split(':')[0];
 
-            int connCount = 0;
-
             _client = client;
             _client.NoDelay = true;
 
@@ -50,7 +49,7 @@ namespace Server.MirNetwork
 
             _receiveList = new ConcurrentQueue<Packet>();
             _sendList = new ConcurrentQueue<Packet>();
-            _sendList.Enqueue(new S.Connected());
+            //_sendList.Enqueue(new S.Connected());
 
             Connected = true;
             BeginReceive();
@@ -149,12 +148,8 @@ namespace Server.MirNetwork
             {
                 Packet p;
                 if (!_receiveList.TryDequeue(out p)) continue;
-                //TimeOutTime = SMain.Envir.Time + Settings.TimeOut;
-               // ProcessPacket(p);
+                ProcessPacket(p);
             }
-
-            while (_retryList.Count > 0)
-                _receiveList.Enqueue(_retryList.Dequeue());
 
             if (_sendList == null || _sendList.Count <= 0) return;
 
@@ -167,6 +162,23 @@ namespace Server.MirNetwork
             }
 
             BeginSend(data);
+        }
+
+        private void ProcessPacket(Packet p)
+        {
+            if (p.Index != (short)ClientPacketIds.ServerList)
+                return;
+
+            S.ServerList serverList = new S.ServerList();
+
+            GameServerInfo info = new GameServerInfo()
+            {
+                Name = "天域归来",
+                Port = 7000,
+            };
+
+            serverList.servers.Add(info);
+            Enqueue(serverList);
         }
 
         public void Disconnect(byte reason)

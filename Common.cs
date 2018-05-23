@@ -4490,6 +4490,8 @@ public abstract class Packet
     {
         switch (index)
         {
+            case (short)ClientPacketIds.ServerList:
+                return new C.ServerList();
             case (short)ClientPacketIds.ClientVersion:
                 return new C.ClientVersion();
             case (short)ClientPacketIds.Disconnect:
@@ -4765,6 +4767,8 @@ public abstract class Packet
     {
         switch (index)
         {
+            case (short)ServerPacketIds.ServerList:
+                return new S.ServerList();
             case (short)ServerPacketIds.Connected:
                 return new S.Connected();
             case (short)ServerPacketIds.ClientVersion:
@@ -6404,6 +6408,11 @@ public class GameServerInfo
 {
     public string Name;
     public int Port;
+
+    public GameServerInfo()
+    {
+
+    }
 
     public GameServerInfo(BinaryReader reader)
     {

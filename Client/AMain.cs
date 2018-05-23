@@ -9,7 +9,9 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using Client;
-
+using System.Net.Sockets;
+using C = ClientPackets;
+using S = ServerPackets;
 
 namespace Launcher
 {
@@ -475,9 +477,11 @@ namespace Launcher
                     CurrentPercent_label.Text = "100%";
                     TotalPercent_label.Text = "100%";
                     InterfaceTimer.Enabled = false;
-                    Launch_pb.Enabled = true;
+                    //Launch_pb.Enabled = true;
                     if (ErrorFound) MessageBox.Show("One or more files failed to download, check Error.txt for details.", "Failed to Download.");
                     ErrorFound = false;
+
+                    RequestServerList();
 
                     if (CleanFiles)
                     {
@@ -561,6 +565,68 @@ namespace Launcher
                 File.Move(oldClient, currentClient);
         }
 
+        private void RequestServerList()
+        {
+            TcpClient client = new TcpClient { NoDelay = true };
+            client.Connect(Settings.IPAddress, 6500);
+
+            NetworkStream ntwStream = client.GetStream();
+            if (ntwStream.CanWrite)
+            {
+                ClientPackets.ServerList packet = new ClientPackets.ServerList();
+                byte[] data = (byte[])packet.GetPacketBytes();
+                ntwStream.Write(data, 0, data.Length);
+
+                byte[] rawData = null;
+                byte[] readData = new Byte[256];
+                while(true)
+                {
+                    Thread.Sleep(1);
+                    Int32 dataRead = ntwStream.Read(readData, 0, readData.Length);
+
+                    if (rawData == null)
+                    {
+                        rawData = new byte[readData.Length];
+                        Buffer.BlockCopy(readData, 0, rawData, 0, dataRead);
+                    }
+                    else
+                    {
+                        byte[] temp = rawData;
+                        rawData = new byte[dataRead + temp.Length];
+                        Buffer.BlockCopy(temp, 0, rawData, 0, temp.Length);
+                        Buffer.BlockCopy(readData, 0, rawData, temp.Length, dataRead);
+                    }
+
+                    Packet p = Packet.ReceivePacket(rawData, out rawData);
+                    if (p != null)
+                    {
+                        switch (p.Index)
+                        {
+                            case (short)ServerPacketIds.ServerList:
+                                {
+                                    S.ServerList serverlist = (S.ServerList)p;
+
+                                    for (int j = 0; j < serverlist.servers.Count; ++j)
+                                    {
+                                        ListViewItem item = new ListViewItem();
+                                        item.Text = serverlist.servers[j].Name;
+                                        serverListView.Items.Add(item);
+                                    }
+
+                                    Launch_pb.Enabled = true;
+                                }
+                                break;
+                        }
+                    }
+
+                    if (Launch_pb.Enabled)
+                        break;
+                }
+
+                ntwStream.Close();
+                client.Close();
+            }
+        }
     }
 
     public class FileInformation
