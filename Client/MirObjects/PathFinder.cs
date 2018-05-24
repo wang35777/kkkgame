@@ -202,6 +202,9 @@ namespace Client.MirObjects
             Node startNode = GetNode(start);
             Node targetNode = GetNode(target);
 
+            if (startNode == null || targetNode == null)
+                return null;
+
             Heap<Node> openSet = new Heap<Node>(MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
 
@@ -273,7 +276,10 @@ namespace Client.MirObjects
 
         private Node GetNode(Point location)
         {
-            return Grid[location.X, location.Y];
+            if (location.X >= 0 && location.X < Map.Width && location.Y >= 0 && location.Y < Map.Height)
+                return Grid[location.X, location.Y];
+
+            return null;
         }
 
         private List<Node> GetNeighbours(Node node)

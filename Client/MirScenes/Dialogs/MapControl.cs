@@ -1156,6 +1156,9 @@ namespace Client.MirScenes.Dialogs
                 User.QueuedAction = new QueuedAction { Action = MirAction.Harvest, Direction = direction, Location = User.CurrentLocation };
                 return true;
             }
+
+        
+
             if (CMain.Shift)
             {
                 if (CMain.Time > GameScene.AttackTime && CanRideAttack()) //ArcherTest - shift click
@@ -1311,14 +1314,14 @@ namespace Client.MirScenes.Dialogs
 
             if (CMain.Time < User.BlizzardStopTime || CMain.Time < User.ReincarnationStopTime) return;
 
-            if (CMain.Alt)
-            {
-                if (AutoPath)
-                    AutoPath = false;
-            }
-
             if (AutoPath)
             {
+                if (MapButtons == MouseButtons.Left)
+                {
+                    AutoPath = false;
+                    return;
+                }
+
                 if (processAutoPath())
                     return;
             }
