@@ -111,8 +111,6 @@ namespace Launcher
             }
         }
 
-        
-
         private void BeginDownload()
         {
             if (DownloadList == null) return;
@@ -477,11 +475,12 @@ namespace Launcher
                     CurrentPercent_label.Text = "100%";
                     TotalPercent_label.Text = "100%";
                     InterfaceTimer.Enabled = false;
-                    //Launch_pb.Enabled = true;
+                    Launch_pb.Enabled = true;
                     if (ErrorFound) MessageBox.Show("One or more files failed to download, check Error.txt for details.", "Failed to Download.");
                     ErrorFound = false;
 
-                    RequestServerList();
+
+                    //RequestServerList();
 
                     if (CleanFiles)
                     {

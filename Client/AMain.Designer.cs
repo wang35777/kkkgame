@@ -327,6 +327,7 @@ namespace Launcher
             // 
             // serverListView
             // 
+            this.serverListView.BackColor = System.Drawing.SystemColors.Info;
             this.serverListView.Location = new System.Drawing.Point(13, 47);
             this.serverListView.Name = "serverListView";
             this.serverListView.Size = new System.Drawing.Size(144, 374);
