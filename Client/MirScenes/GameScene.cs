@@ -925,7 +925,7 @@ namespace Client.MirScenes
 
             if (CMain.Time >= NextPing)
             {
-                NextPing = CMain.Time + 60000;
+                NextPing = CMain.Time + 20000;
                 Network.Enqueue(new C.KeepAlive() { Time = CMain.Time });
             }
 

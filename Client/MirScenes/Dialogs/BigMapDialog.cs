@@ -186,7 +186,7 @@ namespace Client.MirScenes.Dialogs
             var path = GameScene.Scene.MapControl.PathFinder.FindPath(MapObject.User.CurrentLocation, new Point(X, Y));
             DateTime afterDT = System.DateTime.Now;
             TimeSpan ts = afterDT.Subtract(beforDT);
-            GameScene.Scene.DebugOutPut(string.Format("DateTime总共花费{0}ms.", ts.TotalMilliseconds));
+            GameScene.Scene.DebugOutPut(string.Format("计算路径总共花费{0}ms.", ts.TotalMilliseconds));
 
             if (path == null || path.Count == 0)
             {

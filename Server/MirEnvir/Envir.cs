@@ -653,7 +653,6 @@ namespace Server.MirEnvir
                                 {
                                     if (Time > current.Value.OperateTime)
                                     {
-
                                         current.Value.Process();
                                         current.Value.SetOperateTime();
                                     }
@@ -673,10 +672,12 @@ namespace Server.MirEnvir
                         if (Time >= saveTime)
                         {
                             saveTime = Time + Settings.SaveDelay * Settings.Minute;
+
                             BeginSaveAccounts();
                             SaveGuilds();
                             SaveGoods();
                             SaveConquests();
+
                         }
 
                         if (Time >= userTime)
@@ -697,10 +698,13 @@ namespace Server.MirEnvir
 
                         //   if (Players.Count == 0) Thread.Sleep(1);
                         //   GC.Collect();
-
-
+                       long ts = Stopwatch.ElapsedMilliseconds - Time;
+                        if (ts > 30)
+                        {
+                            SMain.Enqueue(string.Format("花费{0}ms.", ts));
+                        }
+                        Thread.Sleep(100);
                     }
-
                 }
                 catch (Exception ex)
                 {
