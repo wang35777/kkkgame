@@ -23,7 +23,6 @@ namespace Client.MirControls
             DrawControlTexture = true;
             BackColour = Color.Magenta;
             Size = new Size(Settings.ScreenWidth, Settings.ScreenHeight);
-
         }
 
         public override sealed Size Size

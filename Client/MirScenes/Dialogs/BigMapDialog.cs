@@ -14,6 +14,13 @@ namespace Client.MirScenes.Dialogs
 {
     public sealed class BigMapDialog : MirControl
     {
+        private MirLabel CoordLabel;
+
+        private int StartPointX;
+        private int StartPointY;
+        private float ScaleX;
+        private float ScaleY;
+
         public BigMapDialog()
         {
        //     NotControl = true;
@@ -23,6 +30,16 @@ namespace Client.MirScenes.Dialogs
             BeforeDraw += (o, e) => OnBeforeDraw();
             Sort = true;
             MouseDown += OnMouseClick;
+            MouseMove += OnMouseMove;
+
+
+            CoordLabel = new MirLabel
+            {
+                AutoSize = true,
+                BackColour = Color.Transparent,
+                ForeColour = Color.White,
+                Parent = this,
+            };
         }
 
         private void OnBeforeDraw()
@@ -42,7 +59,7 @@ namespace Client.MirScenes.Dialogs
                 return;
             }
 
-            TrySort();
+            //TrySort();
 
             Rectangle viewRect = new Rectangle(0, 0, 600, 400);
 
@@ -60,12 +77,12 @@ namespace Client.MirScenes.Dialogs
             Location = viewRect.Location;
             Size = viewRect.Size;
 
-            float scaleX = Size.Width / (float)map.Width;
-            float scaleY = Size.Height / (float)map.Height;
+            ScaleX = Size.Width / (float)map.Width;
+            ScaleY = Size.Height / (float)map.Height;
 
             viewRect.Location = new Point(
-                (int)(scaleX * MapObject.User.CurrentLocation.X) - viewRect.Width / 2,
-                (int)(scaleY * MapObject.User.CurrentLocation.Y) - viewRect.Height / 2);
+                (int)(ScaleX * MapObject.User.CurrentLocation.X) - viewRect.Width / 2,
+                (int)(ScaleY * MapObject.User.CurrentLocation.Y) - viewRect.Height / 2);
 
             if (viewRect.Right >= Size.Width)
                 viewRect.X = Size.Width - viewRect.Width;
@@ -77,8 +94,8 @@ namespace Client.MirScenes.Dialogs
 
             Libraries.MiniMap.Draw(index, Location, Size, Color.FromArgb(255, 255, 255));
 
-            int startPointX = (int)(viewRect.X / scaleX);
-            int startPointY = (int)(viewRect.Y / scaleY);
+            StartPointX = (int)(viewRect.X / ScaleX);
+            StartPointY = (int)(viewRect.Y / ScaleY);
 
             for (int i = MapControl.Objects.Count - 1; i >= 0; i--)
             {
@@ -86,8 +103,8 @@ namespace Client.MirScenes.Dialogs
 
 
                 if (ob.Race == ObjectType.Item || ob.Dead || ob.Race == ObjectType.Spell) continue; // || (ob.ObjectID != MapObject.User.ObjectID)
-                float x = ((ob.CurrentLocation.X - startPointX) * scaleX) + Location.X;
-                float y = ((ob.CurrentLocation.Y - startPointY) * scaleY) + Location.Y;
+                float x = ((ob.CurrentLocation.X - StartPointX) * ScaleX) + Location.X;
+                float y = ((ob.CurrentLocation.Y - StartPointY) * ScaleY) + Location.Y;
 
                 Color colour;
 
@@ -111,8 +128,8 @@ namespace Client.MirScenes.Dialogs
                 {
                     Color colour = Color.White;
 
-                    float x = ((node.Location.X - startPointX) * scaleX) + Location.X;
-                    float y = ((node.Location.Y - startPointY) * scaleY) + Location.Y;
+                    float x = ((node.Location.X - StartPointX) * ScaleX) + Location.X;
+                    float y = ((node.Location.Y - StartPointY) * ScaleY) + Location.Y;
 
                     DXManager.Sprite.Draw2D(DXManager.RadarTexture, Point.Empty, 0, new PointF((int)(x - 0.5F), (int)(y - 0.5F)), colour);
                 }
@@ -127,57 +144,49 @@ namespace Client.MirScenes.Dialogs
             Redraw();
         }
 
-        private void OnMouseClick(object sender, MouseEventArgs e)
+        private void OnMouseMove(object sender, MouseEventArgs e)
         {
             MapControl map = GameScene.Scene.MapControl;
             if (map == null || !Visible) return;
-
-            float scaleX = Size.Width / (float)map.Width;
-            float scaleY = Size.Height / (float)map.Height;
 
             int index = map.BigMap;
 
             if (index <= 0)
             {
                 if (Visible)
-                {
                     Visible = false;
-                }
                 return;
             }
 
-            Rectangle viewRect = new Rectangle(0, 0, 600, 400);
+            int X = (int)Math.Floor((e.X - Location.X) / ScaleX) + StartPointX;
+            int Y = (int)Math.Floor((e.Y - Location.Y) / ScaleY) + StartPointY;
 
-            Size = Libraries.MiniMap.GetSize(index);
+            CoordLabel.Text = String.Format("{0}:{1}", X, Y);
+        }
 
-            if (Size.Width < 600)
-                viewRect.Width = Size.Width;
+        private void OnMouseClick(object sender, MouseEventArgs e)
+        {
+            MapControl map = GameScene.Scene.MapControl;
+            if (map == null || !Visible) return;
 
-            if (Size.Height < 400)
-                viewRect.Height = Size.Height;
 
-            viewRect.X = (Settings.ScreenWidth - viewRect.Width) / 2;
-            viewRect.Y = (Settings.ScreenHeight - 120 - viewRect.Height) / 2;
+            int index = map.BigMap;
 
-            viewRect.Location = new Point(
-             (int)(scaleX * MapObject.User.CurrentLocation.X) - viewRect.Width / 2,
-            (int)(scaleY * MapObject.User.CurrentLocation.Y) - viewRect.Height / 2);
+            if (index <= 0)
+            {
+                if (Visible)
+                    Visible = false;
+                return;
+            }
 
-            if (viewRect.Right >= Size.Width)
-                viewRect.X = Size.Width - viewRect.Width;
-            if (viewRect.Bottom >= Size.Height)
-                viewRect.Y = Size.Height - viewRect.Height;
+            int X = (int)Math.Floor((e.X - Location.X) / ScaleX) + StartPointX;
+            int Y = (int)Math.Floor((e.Y - Location.Y) / ScaleY) + StartPointY;
 
-            if (viewRect.X < 0) viewRect.X = 0;
-            if (viewRect.Y < 0) viewRect.Y = 0;
-
-            int startPointX = (int)(viewRect.X / scaleX);
-            int startPointY = (int)(viewRect.Y / scaleY);
-
-            int X = (int)Math.Floor(((e.X - Location.X) / scaleX) + startPointX);
-            int Y = (int)Math.Floor(((e.Y - Location.Y) / scaleY) + startPointY);
-
+            DateTime beforDT = System.DateTime.Now;
             var path = GameScene.Scene.MapControl.PathFinder.FindPath(MapObject.User.CurrentLocation, new Point(X, Y));
+            DateTime afterDT = System.DateTime.Now;
+            TimeSpan ts = afterDT.Subtract(beforDT);
+            GameScene.Scene.DebugOutPut(string.Format("DateTime总共花费{0}ms.", ts.TotalMilliseconds));
 
             if (path == null || path.Count == 0)
             {

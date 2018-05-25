@@ -13,7 +13,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartArguments>
     </StartArguments>
-    <StartWorkingDirectory>D:\mywork2018\client-040817\</StartWorkingDirectory>
+    <StartWorkingDirectory>E:\github-opensource2018\client-040817\</StartWorkingDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <StartArguments>

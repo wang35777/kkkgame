@@ -59,7 +59,7 @@ namespace Launcher
             this.ProgressCurrent_pb = new System.Windows.Forms.PictureBox();
             this.TotalProg_pb = new System.Windows.Forms.PictureBox();
             this.Launch_pb = new System.Windows.Forms.PictureBox();
-            this.serverListView = new System.Windows.Forms.ListView();
+            this.serverTreeView = new System.Windows.Forms.TreeView();
             this.Movement_panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Config_pb)).BeginInit();
@@ -325,14 +325,13 @@ namespace Launcher
             this.Launch_pb.MouseLeave += new System.EventHandler(this.Launch_pb_MouseLeave);
             this.Launch_pb.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Launch_pb_MouseUp);
             // 
-            // serverListView
+            // serverTreeView
             // 
-            this.serverListView.BackColor = System.Drawing.SystemColors.Info;
-            this.serverListView.Location = new System.Drawing.Point(13, 47);
-            this.serverListView.Name = "serverListView";
-            this.serverListView.Size = new System.Drawing.Size(144, 374);
-            this.serverListView.TabIndex = 32;
-            this.serverListView.UseCompatibleStateImageBehavior = false;
+            this.serverTreeView.BackColor = System.Drawing.SystemColors.Info;
+            this.serverTreeView.Location = new System.Drawing.Point(12, 46);
+            this.serverTreeView.Name = "serverTreeView";
+            this.serverTreeView.Size = new System.Drawing.Size(159, 375);
+            this.serverTreeView.TabIndex = 33;
             // 
             // AMain
             // 
@@ -342,7 +341,7 @@ namespace Launcher
             this.BackgroundImage = global::Client.Properties.Resources.pfffft;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(800, 506);
-            this.Controls.Add(this.serverListView);
+            this.Controls.Add(this.serverTreeView);
             this.Controls.Add(this.Credit_label);
             this.Controls.Add(this.Version_label);
             this.Controls.Add(this.TotalPercent_label);
@@ -404,7 +403,7 @@ namespace Launcher
         private System.Windows.Forms.Label Version_label;
         private System.Windows.Forms.PictureBox Config_pb;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private ListView serverListView;
+        private TreeView serverTreeView;
     }
 }
 

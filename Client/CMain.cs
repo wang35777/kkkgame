@@ -126,6 +126,9 @@ namespace Client
             if (e.KeyCode == Keys.Oem8)
                 CMain.Tilde = true;
 
+            if (e.KeyCode == Keys.F10 || e.Alt)
+                e.SuppressKeyPress = true;
+
             try
             {
                 if (e.Alt && e.KeyCode == Keys.Enter)

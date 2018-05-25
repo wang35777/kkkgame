@@ -333,8 +333,6 @@ namespace Client.MirScenes
             //bool skillMode = Settings.SkillMode ? CMain.Tilde : CMain.Ctrl;
             //bool altBind = skillMode ? Settings.SkillSet : !Settings.SkillSet;
 
-            if (e.KeyCode == Keys.F10)
-                e.SuppressKeyPress = true;
 
             foreach (KeyBind KeyCheck in CMain.InputKeys.Keylist)
             {
@@ -6264,7 +6262,7 @@ namespace Client.MirScenes
             {
                 count++;
                 if (HoverItem.Info.Type != ItemType.Gem)
-                    text = string.Format(addValue > 0 ? CMain.Tr("MAC + {0}~{1} (+{2})") : CMain.Tr("MAC + {0}~{1}"), minValue, maxValue + addValue, addValue);
+                    text = string.Format(addValue > 0 ? CMain.Tr("MAC + {0}~{1} (+{2})") : CMain.Tr("MAC + {0}~{1} {2}"), minValue, maxValue + addValue, addValue);
                 else
                     text = string.Format(CMain.Tr("Adds {0} MAC"), minValue + maxValue + addValue);
                 MirLabel MACLabel = new MirLabel
@@ -8313,6 +8311,11 @@ namespace Client.MirScenes
 
             ItemRentingDialog.Reset();
             ItemRentDialog.Reset();
+        }
+
+        public void DebugOutPut(string msg)
+        {
+            ChatDialog.ReceiveChat(msg, ChatType.Hint);
         }
 
         #region Disposable

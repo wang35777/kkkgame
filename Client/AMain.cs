@@ -475,12 +475,11 @@ namespace Launcher
                     CurrentPercent_label.Text = "100%";
                     TotalPercent_label.Text = "100%";
                     InterfaceTimer.Enabled = false;
-                    Launch_pb.Enabled = true;
+                   // Launch_pb.Enabled = true;
                     if (ErrorFound) MessageBox.Show("One or more files failed to download, check Error.txt for details.", "Failed to Download.");
                     ErrorFound = false;
 
-
-                    //RequestServerList();
+                    RequestServerList();
 
                     if (CleanFiles)
                     {
@@ -605,13 +604,12 @@ namespace Launcher
                                 {
                                     S.ServerList serverlist = (S.ServerList)p;
 
+                                    TreeNode node1 = new TreeNode("服务器列表");
+                                    serverTreeView.Nodes.Add(node1);
                                     for (int j = 0; j < serverlist.servers.Count; ++j)
                                     {
-                                        ListViewItem item = new ListViewItem();
-                                        item.Text = serverlist.servers[j].Name;
-                                        serverListView.Items.Add(item);
+                                        node1.Nodes.Add(serverlist.servers[j].Name);
                                     }
-
                                     Launch_pb.Enabled = true;
                                 }
                                 break;
