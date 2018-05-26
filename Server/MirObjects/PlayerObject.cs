@@ -6178,9 +6178,9 @@ namespace Server.MirObjects
                         magic = GetMagic(Spell.DoubleSlash);
                         damageFinal = magic.GetDamage(damageBase);
 
-                        if (defence == DefenceType.ACAgility) defence = DefenceType.ACAgility;
+                        if (defence == DefenceType.ACAgility) defence = DefenceType.MACAgility;
 
-                        action = new DelayedAction(DelayedType.Damage, Envir.Time + 400, ob, damageFinal, DefenceType.Agility, false);
+                        action = new DelayedAction(DelayedType.Damage, Envir.Time + 400, ob, damageFinal, defence, false);
                         ActionList.Add(action);
                         LevelMagic(magic);
                         break;
@@ -8794,7 +8794,7 @@ namespace Server.MirObjects
                     target = (MapObject)data[2];
 
                     if (target == null || !target.IsAttackTarget(this) || target.CurrentMap != CurrentMap || target.Node == null) return;
-                    if (target.Attacked(this, value, DefenceType.MAC, false) > 0) LevelMagic(magic);
+                    if (target.Attacked(this, value, DefenceType.AC, false) > 0) LevelMagic(magic);
                     break;
 
                 #endregion
@@ -9356,7 +9356,7 @@ namespace Server.MirObjects
                     target = (MapObject)data[2];
 
                     if (target == null || !target.IsAttackTarget(this) || target.CurrentMap != CurrentMap || target.Node == null) return;
-                    if (target.Attacked(this, value, DefenceType.MAC, false) == 0) return;
+                    if (target.Attacked(this, value, DefenceType.AC, false) == 0) return;
 
                     int buffTime = 5 + (5 * magic.Level);
 

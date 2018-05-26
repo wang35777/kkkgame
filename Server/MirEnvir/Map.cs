@@ -1172,7 +1172,7 @@ namespace Server.MirEnvir
                             if (target.Race != ObjectType.Player && target.Race != ObjectType.Monster) continue;
 
                             if (!target.IsAttackTarget(player)) continue;
-                            if (target.Attacked(player, value, DefenceType.MAC, false) > 0)
+                            if (target.Attacked(player, value, DefenceType.AC, false) > 0)
                                 train = true;
                             break;
                         }
