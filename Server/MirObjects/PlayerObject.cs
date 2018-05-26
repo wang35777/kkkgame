@@ -14426,15 +14426,15 @@ namespace Server.MirObjects
                     break;
                 case DefaultNPCType.UseItem:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("UseItem({0}"), value[0]);
+                    key = string.Format(Envir.Tr("UseItem({0})"), value[0]);
                     break;
                 case DefaultNPCType.Trigger:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("Trigger({0}"), value[0]);
+                    key = string.Format(Envir.Tr("Trigger({0})"), value[0]);
                     break;
                 case DefaultNPCType.MapCoord:
                     if (value.Length < 3) return;
-                    key = string.Format(Envir.Tr("MapCoord({0},{1},{2}"), value[0], value[1], value[2]);
+                    key = string.Format(Envir.Tr("MapCoord({0},{1},{2})"), value[0], value[1], value[2]);
                     break;
                 case DefaultNPCType.MapEnter:
                     if (value.Length < 1) return;
@@ -14448,15 +14448,15 @@ namespace Server.MirObjects
                     break;
                 case DefaultNPCType.CustomCommand:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("CustomCommand({0}"), value[0]);
+                    key = string.Format(Envir.Tr("CustomCommand({0})"), value[0]);
                     break;
                 case DefaultNPCType.OnAcceptQuest:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("OnAcceptQuest({0}"), value[0]);
+                    key = string.Format(Envir.Tr("OnAcceptQuest({0})"), value[0]);
                     break;
                 case DefaultNPCType.OnFinishQuest:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("OnFinishQuest({0}"), value[0]);
+                    key = string.Format(Envir.Tr("OnFinishQuest({0})"), value[0]);
                     break;
                 case DefaultNPCType.Daily:
                     key = "Daily";
@@ -14464,7 +14464,7 @@ namespace Server.MirObjects
                     break;
                 case DefaultNPCType.TalkMonster:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("TalkMonster({0}"), value[0]);
+                    key = string.Format(Envir.Tr("TalkMonster({0})"), value[0]);
                     break;
             }
 
