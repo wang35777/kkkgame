@@ -60,7 +60,7 @@ namespace Client.MirObjects
             Players.Frames.Add(MirAction.DashAttack, new Frame(80, 3, 3, 100, 112, 3, 3, 100));
 
             //Monk
-            Players.Frames.Add(MirAction.JumpDown, new Frame(416, 8, 0, 100, 100, 6, 0, 0));
+            Players.Frames.Add(MirAction.JumpDown, new Frame(416, 8, 0, 150, 100, 6, 0, 0));
             Players.Frames.Add(MirAction.PushPalm, new Frame(480, 6, 0, 100, 100, 6, 0, 0));
 
             //Archer
