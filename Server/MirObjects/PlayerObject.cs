@@ -6178,7 +6178,7 @@ namespace Server.MirObjects
                         magic = GetMagic(Spell.DoubleSlash);
                         damageFinal = magic.GetDamage(damageBase);
 
-                        if (defence == DefenceType.ACAgility) defence = DefenceType.MACAgility;
+                        if (defence == DefenceType.ACAgility) defence = DefenceType.ACAgility;
 
                         action = new DelayedAction(DelayedType.Damage, Envir.Time + 400, ob, damageFinal, DefenceType.Agility, false);
                         ActionList.Add(action);

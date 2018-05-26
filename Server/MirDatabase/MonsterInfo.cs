@@ -253,6 +253,14 @@ namespace Server.MirDatabase
             info.Index = ++SMain.EditEnvir.MonsterIndex;
             SMain.EditEnvir.MonsterInfoList.Add(info);
         }
+
+        public static string ToHeader()
+        {
+            return "Name, (ushort)Image, AI, Effect, Level, ViewRange,"
+                +"HP, MinAC, MaxAC, MinMAC, MaxMAC, MinDC, MaxDC, MinMC, MaxMC, MinSC, MaxSC, Accuracy, Agility, Light, AttackSpeed, MoveSpeed, Experience, CanTame, CanPush";
+
+        }
+
         public string ToText()
         {
             return string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24}", Name, (ushort)Image, AI, Effect, Level, ViewRange,

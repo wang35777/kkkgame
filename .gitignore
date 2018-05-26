@@ -58,3 +58,5 @@ Legend of Mir.sln.DotSettings.user
 */bin
 
 /LoginSrv/obj
+*.vsp
+*.psess

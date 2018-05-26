@@ -14,4 +14,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartWorkingDirectory>D:\mywork2018\server-040817\</StartWorkingDirectory>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <StartWorkingDirectory>D:\mywork2018\server-wang35777\</StartWorkingDirectory>
+  </PropertyGroup>
 </Project>

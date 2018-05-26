@@ -89,8 +89,8 @@ namespace Server
             this.gemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conquestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.respawnsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.InterfaceTimer = new System.Windows.Forms.Timer(this.components);
             this.monsterTunerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.InterfaceTimer = new System.Windows.Forms.Timer(this.components);
             this.MainTabs.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -111,7 +111,7 @@ namespace Server
             this.MainTabs.Location = new System.Drawing.Point(0, 24);
             this.MainTabs.Name = "MainTabs";
             this.MainTabs.SelectedIndex = 0;
-            this.MainTabs.Size = new System.Drawing.Size(485, 346);
+            this.MainTabs.Size = new System.Drawing.Size(485, 318);
             this.MainTabs.TabIndex = 5;
             // 
             // tabPage1
@@ -120,7 +120,7 @@ namespace Server
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(477, 320);
+            this.tabPage1.Size = new System.Drawing.Size(477, 292);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = " 日志 ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -133,7 +133,7 @@ namespace Server
             this.LogTextBox.Name = "LogTextBox";
             this.LogTextBox.ReadOnly = true;
             this.LogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogTextBox.Size = new System.Drawing.Size(471, 314);
+            this.LogTextBox.Size = new System.Drawing.Size(471, 286);
             this.LogTextBox.TabIndex = 2;
             // 
             // tabPage2
@@ -142,7 +142,7 @@ namespace Server
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(477, 320);
+            this.tabPage2.Size = new System.Drawing.Size(477, 292);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "调试日志";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -155,7 +155,7 @@ namespace Server
             this.DebugLogTextBox.Name = "DebugLogTextBox";
             this.DebugLogTextBox.ReadOnly = true;
             this.DebugLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.DebugLogTextBox.Size = new System.Drawing.Size(471, 314);
+            this.DebugLogTextBox.Size = new System.Drawing.Size(471, 286);
             this.DebugLogTextBox.TabIndex = 3;
             // 
             // tabPage3
@@ -165,7 +165,7 @@ namespace Server
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(477, 320);
+            this.tabPage3.Size = new System.Drawing.Size(477, 292);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "聊天日志";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -175,18 +175,18 @@ namespace Server
             this.groupBox1.Controls.Add(this.GlobalMessageButton);
             this.groupBox1.Controls.Add(this.GlobalMessageTextBox);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox1.Location = new System.Drawing.Point(3, 272);
+            this.groupBox1.Location = new System.Drawing.Point(3, 247);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(471, 45);
+            this.groupBox1.Size = new System.Drawing.Size(471, 42);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "发送消息";
             // 
             // GlobalMessageButton
             // 
-            this.GlobalMessageButton.Location = new System.Drawing.Point(392, 14);
+            this.GlobalMessageButton.Location = new System.Drawing.Point(392, 13);
             this.GlobalMessageButton.Name = "GlobalMessageButton";
-            this.GlobalMessageButton.Size = new System.Drawing.Size(73, 24);
+            this.GlobalMessageButton.Size = new System.Drawing.Size(73, 22);
             this.GlobalMessageButton.TabIndex = 0;
             this.GlobalMessageButton.Text = "发送";
             this.GlobalMessageButton.UseVisualStyleBackColor = true;
@@ -194,9 +194,9 @@ namespace Server
             // 
             // GlobalMessageTextBox
             // 
-            this.GlobalMessageTextBox.Location = new System.Drawing.Point(6, 17);
+            this.GlobalMessageTextBox.Location = new System.Drawing.Point(6, 16);
             this.GlobalMessageTextBox.Name = "GlobalMessageTextBox";
-            this.GlobalMessageTextBox.Size = new System.Drawing.Size(380, 20);
+            this.GlobalMessageTextBox.Size = new System.Drawing.Size(380, 21);
             this.GlobalMessageTextBox.TabIndex = 0;
             // 
             // ChatLogTextBox
@@ -206,7 +206,7 @@ namespace Server
             this.ChatLogTextBox.Name = "ChatLogTextBox";
             this.ChatLogTextBox.ReadOnly = true;
             this.ChatLogTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ChatLogTextBox.Size = new System.Drawing.Size(471, 269);
+            this.ChatLogTextBox.Size = new System.Drawing.Size(471, 249);
             this.ChatLogTextBox.TabIndex = 4;
             // 
             // tabPage4
@@ -216,7 +216,7 @@ namespace Server
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(477, 320);
+            this.tabPage4.Size = new System.Drawing.Size(477, 292);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "在线玩家";
             // 
@@ -235,7 +235,7 @@ namespace Server
             this.PlayersOnlineListView.GridLines = true;
             this.PlayersOnlineListView.Location = new System.Drawing.Point(3, 3);
             this.PlayersOnlineListView.Name = "PlayersOnlineListView";
-            this.PlayersOnlineListView.Size = new System.Drawing.Size(471, 314);
+            this.PlayersOnlineListView.Size = new System.Drawing.Size(471, 286);
             this.PlayersOnlineListView.Sorting = System.Windows.Forms.SortOrder.Ascending;
             this.PlayersOnlineListView.TabIndex = 0;
             this.PlayersOnlineListView.UseCompatibleStateImageBehavior = false;
@@ -275,9 +275,9 @@ namespace Server
             this.MonsterLabel,
             this.ConnectionsLabel,
             this.CycleDelayLabel});
-            this.StatusBar.Location = new System.Drawing.Point(0, 370);
+            this.StatusBar.Location = new System.Drawing.Point(0, 342);
             this.StatusBar.Name = "StatusBar";
-            this.StatusBar.Size = new System.Drawing.Size(485, 24);
+            this.StatusBar.Size = new System.Drawing.Size(485, 22);
             this.StatusBar.SizingGrip = false;
             this.StatusBar.TabIndex = 4;
             this.StatusBar.Text = "statusStrip1";
@@ -288,7 +288,7 @@ namespace Server
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.PlayersLabel.Name = "PlayersLabel";
-            this.PlayersLabel.Size = new System.Drawing.Size(60, 19);
+            this.PlayersLabel.Size = new System.Drawing.Size(48, 17);
             this.PlayersLabel.Text = "玩家: 0";
             // 
             // MonsterLabel
@@ -297,7 +297,7 @@ namespace Server
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.MonsterLabel.Name = "MonsterLabel";
-            this.MonsterLabel.Size = new System.Drawing.Size(72, 19);
+            this.MonsterLabel.Size = new System.Drawing.Size(48, 17);
             this.MonsterLabel.Text = "怪物: 0";
             // 
             // ConnectionsLabel
@@ -306,7 +306,7 @@ namespace Server
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.ConnectionsLabel.Name = "ConnectionsLabel";
-            this.ConnectionsLabel.Size = new System.Drawing.Size(90, 19);
+            this.ConnectionsLabel.Size = new System.Drawing.Size(48, 17);
             this.ConnectionsLabel.Text = "连接: 0";
             // 
             // CycleDelayLabel
@@ -315,7 +315,7 @@ namespace Server
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
             | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
             this.CycleDelayLabel.Name = "CycleDelayLabel";
-            this.CycleDelayLabel.Size = new System.Drawing.Size(81, 19);
+            this.CycleDelayLabel.Size = new System.Drawing.Size(72, 17);
             this.CycleDelayLabel.Text = "周期延迟: 0";
             // 
             // MainMenu
@@ -340,46 +340,46 @@ namespace Server
             this.toolStripMenuItem1,
             this.closeServerToolStripMenuItem});
             this.controlToolStripMenuItem.Name = "controlToolStripMenuItem";
-            this.controlToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.controlToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.controlToolStripMenuItem.Text = "控制";
             // 
             // startServerToolStripMenuItem
             // 
             this.startServerToolStripMenuItem.Name = "startServerToolStripMenuItem";
-            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.startServerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.startServerToolStripMenuItem.Text = "启动服务器";
             this.startServerToolStripMenuItem.Click += new System.EventHandler(this.startServerToolStripMenuItem_Click);
             // 
             // stopServerToolStripMenuItem
             // 
             this.stopServerToolStripMenuItem.Name = "stopServerToolStripMenuItem";
-            this.stopServerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.stopServerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.stopServerToolStripMenuItem.Text = "停止服务器";
             this.stopServerToolStripMenuItem.Click += new System.EventHandler(this.stopServerToolStripMenuItem_Click);
             // 
             // rebootServerToolStripMenuItem
             // 
             this.rebootServerToolStripMenuItem.Name = "rebootServerToolStripMenuItem";
-            this.rebootServerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.rebootServerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.rebootServerToolStripMenuItem.Text = "重启服务器";
             this.rebootServerToolStripMenuItem.Click += new System.EventHandler(this.rebootServerToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(144, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(131, 6);
             // 
             // closeServerToolStripMenuItem
             // 
             this.closeServerToolStripMenuItem.Name = "closeServerToolStripMenuItem";
-            this.closeServerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.closeServerToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.closeServerToolStripMenuItem.Text = "关闭服务器";
             this.closeServerToolStripMenuItem.Click += new System.EventHandler(this.closeServerToolStripMenuItem_Click);
             // 
             // accountToolStripMenuItem
             // 
             this.accountToolStripMenuItem.Name = "accountToolStripMenuItem";
-            this.accountToolStripMenuItem.Size = new System.Drawing.Size(64, 20);
+            this.accountToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.accountToolStripMenuItem.Text = "账户";
             this.accountToolStripMenuItem.Click += new System.EventHandler(this.accountToolStripMenuItem_Click);
             // 
@@ -394,55 +394,55 @@ namespace Server
             this.magicInfoToolStripMenuItem,
             this.gameshopToolStripMenuItem});
             this.databaseFormsToolStripMenuItem.Name = "databaseFormsToolStripMenuItem";
-            this.databaseFormsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.databaseFormsToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.databaseFormsToolStripMenuItem.Text = "数据";
             // 
             // mapInfoToolStripMenuItem
             // 
             this.mapInfoToolStripMenuItem.Name = "mapInfoToolStripMenuItem";
-            this.mapInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.mapInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.mapInfoToolStripMenuItem.Text = "地图";
             this.mapInfoToolStripMenuItem.Click += new System.EventHandler(this.mapInfoToolStripMenuItem_Click);
             // 
             // itemInfoToolStripMenuItem
             // 
             this.itemInfoToolStripMenuItem.Name = "itemInfoToolStripMenuItem";
-            this.itemInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.itemInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.itemInfoToolStripMenuItem.Text = "物品";
             this.itemInfoToolStripMenuItem.Click += new System.EventHandler(this.itemInfoToolStripMenuItem_Click);
             // 
             // monsterInfoToolStripMenuItem
             // 
             this.monsterInfoToolStripMenuItem.Name = "monsterInfoToolStripMenuItem";
-            this.monsterInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.monsterInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.monsterInfoToolStripMenuItem.Text = "怪物";
             this.monsterInfoToolStripMenuItem.Click += new System.EventHandler(this.monsterInfoToolStripMenuItem_Click);
             // 
             // nPCInfoToolStripMenuItem
             // 
             this.nPCInfoToolStripMenuItem.Name = "nPCInfoToolStripMenuItem";
-            this.nPCInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.nPCInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.nPCInfoToolStripMenuItem.Text = "NPC";
             this.nPCInfoToolStripMenuItem.Click += new System.EventHandler(this.nPCInfoToolStripMenuItem_Click);
             // 
             // questInfoToolStripMenuItem
             // 
             this.questInfoToolStripMenuItem.Name = "questInfoToolStripMenuItem";
-            this.questInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.questInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.questInfoToolStripMenuItem.Text = "任务";
             this.questInfoToolStripMenuItem.Click += new System.EventHandler(this.questInfoToolStripMenuItem_Click);
             // 
             // magicInfoToolStripMenuItem
             // 
             this.magicInfoToolStripMenuItem.Name = "magicInfoToolStripMenuItem";
-            this.magicInfoToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.magicInfoToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.magicInfoToolStripMenuItem.Text = "技能";
             this.magicInfoToolStripMenuItem.Click += new System.EventHandler(this.magicInfoToolStripMenuItem_Click);
             // 
             // gameshopToolStripMenuItem
             // 
             this.gameshopToolStripMenuItem.Name = "gameshopToolStripMenuItem";
-            this.gameshopToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.gameshopToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
             this.gameshopToolStripMenuItem.Text = "商城";
             this.gameshopToolStripMenuItem.Click += new System.EventHandler(this.gameshopToolStripMenuItem_Click);
             // 
@@ -454,20 +454,20 @@ namespace Server
             this.systemToolStripMenuItem,
             this.monsterTunerToolStripMenuItem});
             this.configToolStripMenuItem1.Name = "configToolStripMenuItem1";
-            this.configToolStripMenuItem1.Size = new System.Drawing.Size(55, 20);
+            this.configToolStripMenuItem1.Size = new System.Drawing.Size(43, 20);
             this.configToolStripMenuItem1.Text = "设置";
             // 
             // serverToolStripMenuItem
             // 
             this.serverToolStripMenuItem.Name = "serverToolStripMenuItem";
-            this.serverToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serverToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.serverToolStripMenuItem.Text = "服务器";
             this.serverToolStripMenuItem.Click += new System.EventHandler(this.serverToolStripMenuItem_Click);
             // 
             // balanceToolStripMenuItem
             // 
             this.balanceToolStripMenuItem.Name = "balanceToolStripMenuItem";
-            this.balanceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.balanceToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.balanceToolStripMenuItem.Text = "平衡";
             this.balanceToolStripMenuItem.Click += new System.EventHandler(this.balanceToolStripMenuItem_Click);
             // 
@@ -487,111 +487,111 @@ namespace Server
             this.conquestToolStripMenuItem,
             this.respawnsToolStripMenuItem});
             this.systemToolStripMenuItem.Name = "systemToolStripMenuItem";
-            this.systemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.systemToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.systemToolStripMenuItem.Text = "系统";
             // 
             // dragonSystemToolStripMenuItem
             // 
             this.dragonSystemToolStripMenuItem.Name = "dragonSystemToolStripMenuItem";
-            this.dragonSystemToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.dragonSystemToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.dragonSystemToolStripMenuItem.Text = "龙";
             this.dragonSystemToolStripMenuItem.Click += new System.EventHandler(this.dragonSystemToolStripMenuItem_Click);
             // 
             // miningToolStripMenuItem
             // 
             this.miningToolStripMenuItem.Name = "miningToolStripMenuItem";
-            this.miningToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.miningToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.miningToolStripMenuItem.Text = "挖矿";
             this.miningToolStripMenuItem.Click += new System.EventHandler(this.miningToolStripMenuItem_Click);
             // 
             // guildsToolStripMenuItem
             // 
             this.guildsToolStripMenuItem.Name = "guildsToolStripMenuItem";
-            this.guildsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.guildsToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.guildsToolStripMenuItem.Text = "行会";
             this.guildsToolStripMenuItem.Click += new System.EventHandler(this.guildsToolStripMenuItem_Click);
             // 
             // fishingToolStripMenuItem
             // 
             this.fishingToolStripMenuItem.Name = "fishingToolStripMenuItem";
-            this.fishingToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.fishingToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.fishingToolStripMenuItem.Text = "钓鱼";
             this.fishingToolStripMenuItem.Click += new System.EventHandler(this.fishingToolStripMenuItem_Click);
             // 
             // mailToolStripMenuItem
             // 
             this.mailToolStripMenuItem.Name = "mailToolStripMenuItem";
-            this.mailToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.mailToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.mailToolStripMenuItem.Text = "邮件";
             this.mailToolStripMenuItem.Click += new System.EventHandler(this.mailToolStripMenuItem_Click);
             // 
             // goodsToolStripMenuItem
             // 
             this.goodsToolStripMenuItem.Name = "goodsToolStripMenuItem";
-            this.goodsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.goodsToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.goodsToolStripMenuItem.Text = "Goods";
             this.goodsToolStripMenuItem.Click += new System.EventHandler(this.goodsToolStripMenuItem_Click);
             // 
             // refiningToolStripMenuItem
             // 
             this.refiningToolStripMenuItem.Name = "refiningToolStripMenuItem";
-            this.refiningToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.refiningToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.refiningToolStripMenuItem.Text = "精炼";
             this.refiningToolStripMenuItem.Click += new System.EventHandler(this.refiningToolStripMenuItem_Click);
             // 
             // relationshipToolStripMenuItem
             // 
             this.relationshipToolStripMenuItem.Name = "relationshipToolStripMenuItem";
-            this.relationshipToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.relationshipToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.relationshipToolStripMenuItem.Text = "结婚";
             this.relationshipToolStripMenuItem.Click += new System.EventHandler(this.relationshipToolStripMenuItem_Click);
             // 
             // mentorToolStripMenuItem
             // 
             this.mentorToolStripMenuItem.Name = "mentorToolStripMenuItem";
-            this.mentorToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.mentorToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.mentorToolStripMenuItem.Text = "师徒";
             this.mentorToolStripMenuItem.Click += new System.EventHandler(this.mentorToolStripMenuItem_Click);
             // 
             // gemToolStripMenuItem
             // 
             this.gemToolStripMenuItem.Name = "gemToolStripMenuItem";
-            this.gemToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.gemToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.gemToolStripMenuItem.Text = "宝石";
             this.gemToolStripMenuItem.Click += new System.EventHandler(this.gemToolStripMenuItem_Click);
             // 
             // conquestToolStripMenuItem
             // 
             this.conquestToolStripMenuItem.Name = "conquestToolStripMenuItem";
-            this.conquestToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.conquestToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.conquestToolStripMenuItem.Text = "攻城";
             this.conquestToolStripMenuItem.Click += new System.EventHandler(this.conquestToolStripMenuItem_Click);
             // 
             // respawnsToolStripMenuItem
             // 
             this.respawnsToolStripMenuItem.Name = "respawnsToolStripMenuItem";
-            this.respawnsToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.respawnsToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.respawnsToolStripMenuItem.Text = "刷怪";
             this.respawnsToolStripMenuItem.Click += new System.EventHandler(this.respawnsToolStripMenuItem_Click);
+            // 
+            // monsterTunerToolStripMenuItem
+            // 
+            this.monsterTunerToolStripMenuItem.Name = "monsterTunerToolStripMenuItem";
+            this.monsterTunerToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.monsterTunerToolStripMenuItem.Text = "怪物调整";
+            this.monsterTunerToolStripMenuItem.Click += new System.EventHandler(this.monsterTunerToolStripMenuItem_Click);
             // 
             // InterfaceTimer
             // 
             this.InterfaceTimer.Enabled = true;
             this.InterfaceTimer.Tick += new System.EventHandler(this.InterfaceTimer_Tick);
             // 
-            // monsterTunerToolStripMenuItem
-            // 
-            this.monsterTunerToolStripMenuItem.Name = "monsterTunerToolStripMenuItem";
-            this.monsterTunerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.monsterTunerToolStripMenuItem.Text = "怪物调整";
-            this.monsterTunerToolStripMenuItem.Click += new System.EventHandler(this.monsterTunerToolStripMenuItem_Click);
-            // 
             // SMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(485, 394);
+            this.ClientSize = new System.Drawing.Size(485, 364);
             this.Controls.Add(this.MainTabs);
             this.Controls.Add(this.StatusBar);
             this.Controls.Add(this.MainMenu);

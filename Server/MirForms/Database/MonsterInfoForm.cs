@@ -12,7 +12,7 @@ namespace Server
 {
     public partial class MonsterInfoForm : Form
     {
-        public string MonsterListPath = Path.Combine(Settings.ExportPath, "MonsterList.txt");
+        public string MonsterListPath = Path.Combine(Settings.ExportPath, "MonsterList.csv");
 
         public Envir Envir
         {
@@ -665,9 +665,13 @@ namespace Server
         private void ExportMonsters(IEnumerable<MonsterInfo> monsters)
         {
             var monsterInfos = monsters as MonsterInfo[] ?? monsters.ToArray();
-            var list = monsterInfos.Select(monster => monster.ToText()).ToList();
 
-            File.WriteAllLines(MonsterListPath, list);
+            using (StreamWriter file = new StreamWriter(MonsterListPath, false))
+            {
+                file.WriteLine(MonsterInfo.ToHeader());
+                foreach (var item in monsterInfos)
+                    file.WriteLine(item.ToText());// 直接追加文件末尾，换行 
+            }
 
             MessageBox.Show(monsterInfos.Count() + " Items have been exported");
         }
@@ -677,7 +681,7 @@ namespace Server
             string Path = string.Empty;
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text File|*.txt";
+            ofd.Filter = "csv File|*.csv";
             ofd.ShowDialog();
 
             if (ofd.FileName == string.Empty) return;
@@ -692,8 +696,8 @@ namespace Server
 
             var monsters = data.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
 
-            foreach (var m in monsters)
-                MonsterInfo.FromText(m);
+            for (int i = 1; i < monsters.Length; ++i)
+                MonsterInfo.FromText(monsters[i]);
 
             UpdateInterface();
         }

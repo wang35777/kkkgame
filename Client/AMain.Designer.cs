@@ -77,7 +77,7 @@ namespace Launcher
             this.ActionLabel.BackColor = System.Drawing.Color.Transparent;
             this.ActionLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ActionLabel.ForeColor = System.Drawing.Color.Gray;
-            this.ActionLabel.Location = new System.Drawing.Point(439, 436);
+            this.ActionLabel.Location = new System.Drawing.Point(435, 468);
             this.ActionLabel.Name = "ActionLabel";
             this.ActionLabel.Size = new System.Drawing.Size(173, 17);
             this.ActionLabel.TabIndex = 4;
@@ -92,7 +92,7 @@ namespace Launcher
             this.SpeedLabel.BackColor = System.Drawing.Color.Transparent;
             this.SpeedLabel.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SpeedLabel.ForeColor = System.Drawing.Color.Gray;
-            this.SpeedLabel.Location = new System.Drawing.Point(347, 483);
+            this.SpeedLabel.Location = new System.Drawing.Point(347, 502);
             this.SpeedLabel.Name = "SpeedLabel";
             this.SpeedLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.SpeedLabel.Size = new System.Drawing.Size(265, 15);
@@ -184,7 +184,7 @@ namespace Launcher
             this.Version_label.BackColor = System.Drawing.Color.Transparent;
             this.Version_label.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Version_label.ForeColor = System.Drawing.Color.Gray;
-            this.Version_label.Location = new System.Drawing.Point(672, 489);
+            this.Version_label.Location = new System.Drawing.Point(643, 525);
             this.Version_label.Name = "Version_label";
             this.Version_label.Size = new System.Drawing.Size(120, 12);
             this.Version_label.TabIndex = 31;
@@ -200,7 +200,7 @@ namespace Launcher
             this.Main_browser.Name = "Main_browser";
             this.Main_browser.ScriptErrorsSuppressed = true;
             this.Main_browser.ScrollBarsEnabled = false;
-            this.Main_browser.Size = new System.Drawing.Size(605, 379);
+            this.Main_browser.Size = new System.Drawing.Size(605, 404);
             this.Main_browser.TabIndex = 24;
             this.Main_browser.Url = new System.Uri("", System.UriKind.Relative);
             this.Main_browser.Visible = false;
@@ -213,7 +213,7 @@ namespace Launcher
             this.CurrentFile_label.BackColor = System.Drawing.Color.Transparent;
             this.CurrentFile_label.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentFile_label.ForeColor = System.Drawing.Color.Gray;
-            this.CurrentFile_label.Location = new System.Drawing.Point(59, 432);
+            this.CurrentFile_label.Location = new System.Drawing.Point(59, 451);
             this.CurrentFile_label.Name = "CurrentFile_label";
             this.CurrentFile_label.Size = new System.Drawing.Size(362, 16);
             this.CurrentFile_label.TabIndex = 27;
@@ -227,7 +227,7 @@ namespace Launcher
             this.CurrentPercent_label.BackColor = System.Drawing.Color.Transparent;
             this.CurrentPercent_label.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CurrentPercent_label.ForeColor = System.Drawing.Color.Gray;
-            this.CurrentPercent_label.Location = new System.Drawing.Point(616, 449);
+            this.CurrentPercent_label.Location = new System.Drawing.Point(616, 468);
             this.CurrentPercent_label.Name = "CurrentPercent_label";
             this.CurrentPercent_label.Size = new System.Drawing.Size(35, 18);
             this.CurrentPercent_label.TabIndex = 28;
@@ -241,7 +241,7 @@ namespace Launcher
             this.TotalPercent_label.BackColor = System.Drawing.Color.Transparent;
             this.TotalPercent_label.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TotalPercent_label.ForeColor = System.Drawing.Color.Gray;
-            this.TotalPercent_label.Location = new System.Drawing.Point(616, 465);
+            this.TotalPercent_label.Location = new System.Drawing.Point(616, 499);
             this.TotalPercent_label.Name = "TotalPercent_label";
             this.TotalPercent_label.Size = new System.Drawing.Size(35, 18);
             this.TotalPercent_label.TabIndex = 29;
@@ -255,7 +255,7 @@ namespace Launcher
             this.Credit_label.BackColor = System.Drawing.Color.Transparent;
             this.Credit_label.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Credit_label.ForeColor = System.Drawing.Color.Gray;
-            this.Credit_label.Location = new System.Drawing.Point(9, 488);
+            this.Credit_label.Location = new System.Drawing.Point(55, 521);
             this.Credit_label.Name = "Credit_label";
             this.Credit_label.Size = new System.Drawing.Size(114, 13);
             this.Credit_label.TabIndex = 30;
@@ -267,9 +267,9 @@ namespace Launcher
             this.ProgTotalEnd_pb.BackColor = System.Drawing.Color.Transparent;
             this.ProgTotalEnd_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ProgTotalEnd_pb.Image = global::Client.Properties.Resources.NEW_Progress_End__Blue_;
-            this.ProgTotalEnd_pb.Location = new System.Drawing.Point(608, 469);
+            this.ProgTotalEnd_pb.Location = new System.Drawing.Point(608, 509);
             this.ProgTotalEnd_pb.Name = "ProgTotalEnd_pb";
-            this.ProgTotalEnd_pb.Size = new System.Drawing.Size(4, 14);
+            this.ProgTotalEnd_pb.Size = new System.Drawing.Size(10, 14);
             this.ProgTotalEnd_pb.TabIndex = 26;
             this.ProgTotalEnd_pb.TabStop = false;
             // 
@@ -278,7 +278,7 @@ namespace Launcher
             this.ProgEnd_pb.BackColor = System.Drawing.Color.Transparent;
             this.ProgEnd_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ProgEnd_pb.Image = global::Client.Properties.Resources.NEW_Progress_End__Green_;
-            this.ProgEnd_pb.Location = new System.Drawing.Point(608, 452);
+            this.ProgEnd_pb.Location = new System.Drawing.Point(608, 489);
             this.ProgEnd_pb.Name = "ProgEnd_pb";
             this.ProgEnd_pb.Size = new System.Drawing.Size(4, 14);
             this.ProgEnd_pb.TabIndex = 25;
@@ -289,7 +289,7 @@ namespace Launcher
             this.ProgressCurrent_pb.BackColor = System.Drawing.Color.Transparent;
             this.ProgressCurrent_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ProgressCurrent_pb.Image = global::Client.Properties.Resources.Green_Progress;
-            this.ProgressCurrent_pb.Location = new System.Drawing.Point(58, 452);
+            this.ProgressCurrent_pb.Location = new System.Drawing.Point(58, 489);
             this.ProgressCurrent_pb.Name = "ProgressCurrent_pb";
             this.ProgressCurrent_pb.Size = new System.Drawing.Size(550, 14);
             this.ProgressCurrent_pb.TabIndex = 23;
@@ -301,7 +301,7 @@ namespace Launcher
             this.TotalProg_pb.BackColor = System.Drawing.Color.Transparent;
             this.TotalProg_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.TotalProg_pb.Image = global::Client.Properties.Resources.Blue_Progress;
-            this.TotalProg_pb.Location = new System.Drawing.Point(58, 469);
+            this.TotalProg_pb.Location = new System.Drawing.Point(58, 509);
             this.TotalProg_pb.Name = "TotalProg_pb";
             this.TotalProg_pb.Size = new System.Drawing.Size(550, 13);
             this.TotalProg_pb.TabIndex = 22;
@@ -314,7 +314,7 @@ namespace Launcher
             this.Launch_pb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Launch_pb.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Launch_pb.Image = global::Client.Properties.Resources.Launch_Base1;
-            this.Launch_pb.Location = new System.Drawing.Point(658, 436);
+            this.Launch_pb.Location = new System.Drawing.Point(657, 472);
             this.Launch_pb.Name = "Launch_pb";
             this.Launch_pb.Size = new System.Drawing.Size(116, 50);
             this.Launch_pb.TabIndex = 19;
@@ -330,7 +330,7 @@ namespace Launcher
             this.serverTreeView.BackColor = System.Drawing.SystemColors.Info;
             this.serverTreeView.Location = new System.Drawing.Point(12, 46);
             this.serverTreeView.Name = "serverTreeView";
-            this.serverTreeView.Size = new System.Drawing.Size(159, 375);
+            this.serverTreeView.Size = new System.Drawing.Size(159, 400);
             this.serverTreeView.TabIndex = 33;
             // 
             // AMain
@@ -340,7 +340,7 @@ namespace Launcher
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::Client.Properties.Resources.pfffft;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(800, 506);
+            this.ClientSize = new System.Drawing.Size(800, 545);
             this.Controls.Add(this.serverTreeView);
             this.Controls.Add(this.Credit_label);
             this.Controls.Add(this.Version_label);

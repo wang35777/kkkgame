@@ -13,7 +13,7 @@ namespace Server
 {
     public partial class ItemInfoForm : Form
     {
-        public string ItemListPath = Path.Combine(Settings.ExportPath, "ItemList.txt");
+        public string ItemListPath = Path.Combine(Settings.ExportPath, "ItemList.csv");
 
         public Envir Envir
         {
@@ -1083,10 +1083,15 @@ namespace Server
         {
             var itemInfos = items as ItemInfo[] ?? items.ToArray();
             var list = itemInfos.Select(item => item.ToText()).ToList();
+            // File.WriteAllLines(ItemListPath, list);
+            using (StreamWriter file = new StreamWriter(ItemListPath, false))
+            {
+                file.WriteLine(ItemInfo.ToHeader());
+                foreach (ItemInfo item in itemInfos)
+                    file.WriteLine(item.ToText());// 直接追加文件末尾，换行 
+            }
 
-            File.WriteAllLines(ItemListPath, list);
-
-            MessageBox.Show(itemInfos.Count() + " Items have been exported");
+            MessageBox.Show(ItemListPath + " " +itemInfos.Count() + " Items have been exported");
         }
 
         private void ImportButton_Click(object sender, EventArgs e)
@@ -1094,7 +1099,7 @@ namespace Server
             string Path = string.Empty;
 
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Text File|*.txt";
+            ofd.Filter = "Text File|*.csv";
             ofd.ShowDialog();
 
             if (ofd.FileName == string.Empty) return;
@@ -1108,7 +1113,16 @@ namespace Server
             }
 
             var items = data.Split(new[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+            var count = 0;
+            for (int i=1; i<items.Length; i++)
+            {
+                count++;
+                ItemInfo info = ItemInfo.FromText(items[i]);
+                info.Index = ++Envir.ItemIndex;
+                Envir.ItemInfoList.Add(info);
+            }
 
+            /**
             var count = 0;
             foreach (var info in items.Select(ItemInfo.FromText).Where(info => info != null))
             {
@@ -1116,6 +1130,7 @@ namespace Server
                 info.Index = ++Envir.ItemIndex;
                 Envir.ItemInfoList.Add(info);
             }
+    **/
 
             MessageBox.Show(count + " Items have been imported");
             UpdateInterface(true);

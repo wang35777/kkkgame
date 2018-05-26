@@ -59,7 +59,7 @@ namespace Client.MirScenes.Dialogs
                 return;
             }
 
-            TrySort();
+            //TrySort();
 
             Rectangle viewRect = new Rectangle(0, 0, 600, 400);
 
@@ -160,7 +160,6 @@ namespace Client.MirScenes.Dialogs
 
             int X = (int)Math.Floor((e.X - Location.X) / ScaleX) + StartPointX;
             int Y = (int)Math.Floor((e.Y - Location.Y) / ScaleY) + StartPointY;
-            var path = GameScene.Scene.MapControl.PathFinder.FindPath(MapObject.User.CurrentLocation, new Point(X, Y));
 
             CoordLabel.Text = String.Format("{0}:{1}", X, Y);
         }
@@ -169,7 +168,6 @@ namespace Client.MirScenes.Dialogs
         {
             MapControl map = GameScene.Scene.MapControl;
             if (map == null || !Visible) return;
-
 
             int index = map.BigMap;
 
@@ -182,7 +180,12 @@ namespace Client.MirScenes.Dialogs
 
             int X = (int)Math.Floor((e.X - Location.X) / ScaleX) + StartPointX;
             int Y = (int)Math.Floor((e.Y - Location.Y) / ScaleY) + StartPointY;
+
+            DateTime beforDT = System.DateTime.Now;
             var path = GameScene.Scene.MapControl.PathFinder.FindPath(MapObject.User.CurrentLocation, new Point(X, Y));
+            DateTime afterDT = System.DateTime.Now;
+            TimeSpan ts = afterDT.Subtract(beforDT);
+            GameScene.Scene.DebugOutPut(string.Format("计算路径总共花费{0}ms.", ts.TotalMilliseconds));
 
             if (path == null || path.Count == 0)
             {

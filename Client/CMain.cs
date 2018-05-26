@@ -126,6 +126,7 @@ namespace Client
             if (e.KeyCode == Keys.Oem8)
                 CMain.Tilde = true;
 
+
             try
             {
                 if (e.Alt && e.KeyCode == Keys.Enter)
@@ -135,8 +136,9 @@ namespace Client
                 }
 
                 if (MirScene.ActiveScene != null)
+                {
                     MirScene.ActiveScene.OnKeyDown(e);
-
+                }
             }
             catch (Exception ex)
             {

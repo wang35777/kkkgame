@@ -202,7 +202,7 @@ namespace Client.MirObjects
             Node startNode = GetNode(start);
             Node targetNode = GetNode(target);
 
-            if (startNode == null || targetNode == null)
+            if (startNode == null || targetNode == null || !targetNode.Walkable) 
                 return null;
 
             Heap<Node> openSet = new Heap<Node>(MaxSize);

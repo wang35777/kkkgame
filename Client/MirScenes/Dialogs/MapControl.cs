@@ -1318,12 +1318,12 @@ namespace Client.MirScenes.Dialogs
             {
                 if (MapButtons == MouseButtons.Left)
                 {
+                    GameScene.Scene.DebugOutPut("auto path = false");
                     AutoPath = false;
                     return;
                 }
 
-                if (processAutoPath())
-                    return;
+                processAutoPath();
             }
 
             if (MapObject.TargetObject != null && !MapObject.TargetObject.Dead)
