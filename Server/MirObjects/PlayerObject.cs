@@ -3153,7 +3153,6 @@ namespace Server.MirObjects
                 {
                     case Spell.Fencing:
                         Accuracy = (byte)Math.Min(byte.MaxValue, Accuracy + magic.Level * 3);
-                        MaxAC = (ushort)Math.Min(ushort.MaxValue, MaxAC + (magic.Level + 1) * 3);
                         break;
                     #region 增强体质
                         //todo:技能修改:增加被动技能:增强体质
