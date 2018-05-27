@@ -36,14 +36,15 @@ namespace Server
         {
             InitializeComponent();
 
-            ITypeComboBox.Items.AddRange(Enum.GetValues(typeof (ItemType)).Cast<object>().ToArray());
+            ITypeComboBox.Items.AddRange(Envir.TrEunm(typeof(ItemType)));
             IGradeComboBox.Items.AddRange(Enum.GetValues(typeof(ItemGrade)).Cast<object>().ToArray());
             RTypeComboBox.Items.AddRange(Enum.GetValues(typeof (RequiredType)).Cast<object>().ToArray());
             RClassComboBox.Items.AddRange(Enum.GetValues(typeof (RequiredClass)).Cast<object>().ToArray());
             RGenderComboBox.Items.AddRange(Enum.GetValues(typeof (RequiredGender)).Cast<object>().ToArray());
             ISetComboBox.Items.AddRange(Enum.GetValues(typeof(ItemSet)).Cast<object>().ToArray());
 
-            ITypeFilterComboBox.Items.AddRange(Enum.GetValues(typeof(ItemType)).Cast<object>().ToArray());
+            //ITypeFilterComboBox.Items.AddRange(Enum.GetValues(typeof(ItemType)).Cast<object>().ToArray());
+            ITypeFilterComboBox.Items.AddRange(Envir.TrEunm(typeof(ItemType)));
             ITypeFilterComboBox.Items.Add(new ComboBoxItem { Text = "All" });
             ITypeFilterComboBox.SelectedIndex = ITypeFilterComboBox.Items.Count - 1;
 
@@ -52,21 +53,21 @@ namespace Server
 
         public void RefreshUniqueTab()
         {
-            if ((ITypeComboBox.SelectedItem != null) && ((ItemType)ITypeComboBox.SelectedItem == ItemType.Gem))
+            if ((ITypeComboBox.SelectedItem != null) && ((string)ITypeComboBox.SelectedItem == Envir.Tr(ItemType.Gem.ToString())))
             {
                 tabControl1.TabPages[3].Text = "Usable on";
-                ParalysischeckBox.Text = "Weapon";
-                TeleportcheckBox.Text = "Armour";
-                ClearcheckBox.Text = "Helmet";
-                ProtectioncheckBox.Text = "Necklace";
-                RevivalcheckBox.Text = "Bracelet";
-                MusclecheckBox.Text = "Ring";
-                FlamecheckBox.Text = "Amulet";
-                HealingcheckBox.Text = "Belt";
-                ProbecheckBox.Text = "Boots";
-                SkillcheckBox.Text = "Stone";
-                NoDuraLosscheckBox.Text = "Torch";
-                PickaxecheckBox.Text = "Unused";
+                ParalysischeckBox.Text = "武器";
+                TeleportcheckBox.Text = "盔甲";
+                ClearcheckBox.Text = "头盔";
+                ProtectioncheckBox.Text = "项链";
+                RevivalcheckBox.Text = "手镯";
+                MusclecheckBox.Text = "戒指";
+                FlamecheckBox.Text = "护身符";
+                HealingcheckBox.Text = "腰带";
+                ProbecheckBox.Text = "战靴";
+                SkillcheckBox.Text = "石头";
+                NoDuraLosscheckBox.Text = "火炬";
+                PickaxecheckBox.Text = "无用的";
                 label50.Text = "Base rate%";
                 label52.Text = "Success drop";
                 label51.Text = "Max stats (all)";
@@ -75,23 +76,23 @@ namespace Server
             }
             else
             {
-                tabControl1.TabPages[3].Text = "Special Stats";
-                ParalysischeckBox.Text = "Paralysis ring";
-                TeleportcheckBox.Text = "Teleport ring";
-                ClearcheckBox.Text = "Clear ring";
-                ProtectioncheckBox.Text = "Protection ring";
-                RevivalcheckBox.Text = "Revival ring";
-                MusclecheckBox.Text = "Muscle ring";
-                FlamecheckBox.Text = "Flame ring";
-                HealingcheckBox.Text = "Healing ring";
-                ProbecheckBox.Text = "Probe necklace";
-                SkillcheckBox.Text = "Skill necklace";
-                NoDuraLosscheckBox.Text = "No dura loss";
-                PickaxecheckBox.Text = "Pickaxe";
-                label50.Text = "Critical rate:";
-                label52.Text = "Reflect:";
-                label51.Text = "Critical Dmg:";
-                label49.Text = "HP Drain:";
+                tabControl1.TabPages[3].Text = "特殊属性";
+                ParalysischeckBox.Text = "麻痹属性";
+                TeleportcheckBox.Text = "传送属性";
+                ClearcheckBox.Text = "隐身属性";
+                ProtectioncheckBox.Text = "护身属性";
+                RevivalcheckBox.Text = "复活属性";
+                MusclecheckBox.Text = "超重属性";
+                FlamecheckBox.Text = "火焰属性";
+                HealingcheckBox.Text = "治疗属性";
+                ProbecheckBox.Text = "探测属性";
+                SkillcheckBox.Text = "技巧属性";
+                NoDuraLosscheckBox.Text = "不掉持久";
+                PickaxecheckBox.Text = "挖矿锄头";
+                label50.Text = "暴击率:";
+                label52.Text = "反弹:";
+                label51.Text = "暴击伤害:";
+                label49.Text = "流血:";
                 BlinkcheckBox.Text = "Blink";
             }
         }
@@ -106,7 +107,7 @@ namespace Server
                 {
                     if (ITypeFilterComboBox.SelectedItem == null ||
                         ITypeFilterComboBox.SelectedIndex == ITypeFilterComboBox.Items.Count - 1 ||
-                        Envir.ItemInfoList[i].Type == (ItemType)ITypeFilterComboBox.SelectedItem)
+                        Envir.Tr(Envir.ItemInfoList[i].Type.ToString()) == (string)ITypeFilterComboBox.SelectedItem)
                         ItemInfoListBox.Items.Add(Envir.ItemInfoList[i]);
                 }
             }
@@ -223,7 +224,7 @@ namespace Server
             WeightTextBox.Text = info.Weight.ToString();
             ImageTextBox.Text = info.Image.ToString();
             DuraTextBox.Text = info.Durability.ToString();
-            ITypeComboBox.SelectedItem = info.Type;
+            ITypeComboBox.SelectedItem = Envir.Tr(info.Type.ToString());
             IGradeComboBox.SelectedItem = info.Grade;
             ISetComboBox.SelectedItem = info.Set;
             ShapeTextBox.Text = info.Shape.ToString();
@@ -331,7 +332,7 @@ namespace Server
                 if (WeightTextBox.Text != info.Weight.ToString()) WeightTextBox.Text = string.Empty;
                 if (ImageTextBox.Text != info.Image.ToString()) ImageTextBox.Text = string.Empty;
                 if (DuraTextBox.Text != info.Durability.ToString()) DuraTextBox.Text = string.Empty;
-                if (ITypeComboBox.SelectedItem == null || (ItemType)ITypeComboBox.SelectedItem != info.Type) ITypeComboBox.SelectedItem = null;
+                if (ITypeComboBox.SelectedItem == null || (string)ITypeComboBox.SelectedItem != Envir.Tr(info.Type.ToString())) ITypeComboBox.SelectedItem = null;
                 if (IGradeComboBox.SelectedItem == null || (ItemGrade)IGradeComboBox.SelectedItem != info.Grade) IGradeComboBox.SelectedItem = null;
                 if (ISetComboBox.SelectedItem == null || (ItemSet)ISetComboBox.SelectedItem != info.Set) ISetComboBox.SelectedItem = null;
                 if (ShapeTextBox.Text != info.Shape.ToString()) ShapeTextBox.Text = string.Empty;
@@ -503,7 +504,7 @@ namespace Server
             if (ActiveControl != sender) return;
 
             for (int i = 0; i < _selectedItemInfos.Count; i++)
-                _selectedItemInfos[i].Type = (ItemType)ITypeComboBox.SelectedItem;
+                _selectedItemInfos[i].Type = (ItemType)Envir.String2Enum((string)ITypeComboBox.SelectedItem, typeof(ItemType));
         }
         private void RTypeComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

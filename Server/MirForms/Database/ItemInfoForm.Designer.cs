@@ -1914,7 +1914,7 @@
             this.globalDropNotify_CheckBox.Name = "globalDropNotify_CheckBox";
             this.globalDropNotify_CheckBox.Size = new System.Drawing.Size(128, 17);
             this.globalDropNotify_CheckBox.TabIndex = 124;
-            this.globalDropNotify_CheckBox.Text = "Notify Server on Drop";
+            this.globalDropNotify_CheckBox.Text = "掉落服务器通知";
             this.globalDropNotify_CheckBox.UseVisualStyleBackColor = true;
             this.globalDropNotify_CheckBox.CheckedChanged += new System.EventHandler(this.globalDropNotify_CheckBox_CheckedChanged);
             // 

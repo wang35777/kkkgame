@@ -57,6 +57,8 @@ namespace Server.MirEnvir
 
         public const int Version = 77;
         public const int CustomVersion = 0;
+
+
         public const string DatabasePath = @".\Server.MirDB";
         public const string AccountPath = @".\Server.MirADB";
         public const string BackUpPath = @".\Back Up\";
@@ -459,6 +461,17 @@ namespace Server.MirEnvir
                 MagicInfoList.Add(new MagicInfo {  Name = Tr("DaMoGunFa"),Spell = Spell.DaMoGunFa, Icon = 42, Level1 = 48, Level2 = 51, Level3 = 55, Need1 = 8000, Need2 = 11000, Need3 = 15000, BaseCost = 22, LevelCost = 10, Range = 0 });
             if (!MagicExists(Spell.XiangLongGunFa)) 
                 MagicInfoList.Add(new MagicInfo {  Name = Tr("XiangLongGunFa"), Spell = Spell.XiangLongGunFa, Icon = 42, Level1 = 48, Level2 = 51, Level3 = 55, Need1 = 8000, Need2 = 11000, Need3 = 15000, BaseCost = 22, LevelCost = 10, Range = 0 });
+        }
+
+        public static object String2Enum(string name, Type type)
+        {
+            Array arr = Enum.GetValues(type);
+            foreach (var e in arr)
+            {
+                if (name == Tr(e.ToString()))
+                    return e;
+            }
+            return null;
         }
 
         private string CanStartEnvir()
@@ -3208,6 +3221,11 @@ namespace Server.MirEnvir
             CharacterInfo Player = Rank.info as CharacterInfo;
             if (Player == null) return;
             Player.Rank[type] = Index;
+        }
+
+        public static string[] TrEunm(Type type)
+        {
+            return Settings.lan.GetNames(type);
         }
 
         public void RemoveRank(CharacterInfo info)

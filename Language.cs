@@ -16,24 +16,27 @@ public class Language
 
     public void Load(string path)
     {
-        try
-        {
-            List<string> contents = new List<string>();
-            if (File.Exists(path))
-                contents.AddRange(File.ReadAllLines(path));
 
-            for (int i = 0; i < contents.Count; ++i)
+        List<string> contents = new List<string>();
+        if (File.Exists(path)) contents.AddRange(File.ReadAllLines(path));
+
+        for (int i = 0; i < contents.Count; ++i)
+        {
+            try
             {
                 string line = contents[i].Replace("\\n", "\n");
                 string[] strs = line.Split('=');
                 if (strs.Length < 2)
                     SaveError(contents[i]);
 
-                strings.Add(strs[0], strs[1]);
+                if (!strings.ContainsKey(strs[0]))
+                    strings.Add(strs[0], strs[1]);
             }
-        }
-        catch
-        {
+            catch (Exception ex)
+            {
+                File.AppendAllText(@".\Error.txt",
+                           string.Format("[{0}] {1}{2}", DateTime.Now, ex, Environment.NewLine));
+            }
         }
     }
 
@@ -56,5 +59,17 @@ public class Language
         catch
         {
         }
+    }
+
+    public string[] GetNames(Type obj)
+    {
+        Array arr = Enum.GetValues(obj);
+        string[] strings = new string[arr.Length];
+        int i = 0;
+        foreach (var e in arr)
+        {
+            strings[i++] = Translate(e.ToString());
+        }
+        return strings;
     }
 }
