@@ -3165,7 +3165,7 @@ namespace Server.MirObjects
                         Accuracy = (byte)Math.Min(byte.MaxValue, Accuracy + magic.Level);
                         break;
                     case Spell.SpiritSword:
-                        Accuracy = (byte)Math.Min(byte.MaxValue, Accuracy + magic.Level);
+                        Accuracy = (byte)Math.Min(byte.MaxValue, Accuracy + magic.Level * 2);
                         MaxDC = (ushort)Math.Min(ushort.MaxValue, MaxDC + MaxSC * (magic.Level + 1) * 0.1F);
                         break;
                     case Spell.JiBenGunFa:
