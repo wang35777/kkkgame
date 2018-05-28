@@ -5598,7 +5598,7 @@ namespace Client.MirScenes
                 Location = new Point(4, 4),
                 OutLine = true,
                 Parent = ItemLabel,
-                Text = HoverItem.Info.Grade != ItemGrade.None ? HoverItem.Info.FriendlyName + "\n" + HoverItem.Info.Grade.ToString() : 
+                Text = HoverItem.Info.Grade != ItemGrade.None ? HoverItem.Info.FriendlyName + "\n" + CMain.Tr(HoverItem.Info.Grade.ToString()) : 
                 (HoverItem.Info.Type == ItemType.Pets && HoverItem.Info.Shape == 26 && HoverItem.Info.Effect != 7) ? "WonderDrug" : HoverItem.Info.FriendlyName,
             };
 
@@ -5657,7 +5657,7 @@ namespace Client.MirScenes
             String WedRingName = "";
             if (HoverItem.WeddingRing == -1)
             {
-                WedRingName = HoverItem.Info.Type.ToString() +
+                WedRingName = CMain.Tr(HoverItem.Info.Type.ToString()) +
                 "\n" + CMain.Tr("W ") + HoverItem.Weight + text;
             }
             else
