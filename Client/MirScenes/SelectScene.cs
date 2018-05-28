@@ -135,10 +135,10 @@ namespace Client.MirScenes
             };
             CharacterDisplay.AfterDraw += (o, e) =>
             {
-               // if (_selected >= 0 && _selected < Characters.Count && characters[_selected].Class == MirClass.Wizard)
-                    Libraries.ChrSel.DrawBlend(CharacterDisplay.Index + 560, CharacterDisplay.DisplayLocationWithoutOffSet, Color.White, true);
+                // if (_selected >= 0 && _selected < Characters.Count && characters[_selected].Class == MirClass.Wizard)
+                Libraries.ChrSel.DrawBlend(CharacterDisplay.Index + 560, CharacterDisplay.DisplayLocationWithoutOffSet, Color.White, true);
             };
-            
+
             CharacterButtons = new CharacterButton[4];
 
             CharacterButtons[0] = new CharacterButton
@@ -840,7 +840,7 @@ namespace Client.MirScenes
                 TaoistButton.Index = 2432;
                 AssassinButton.Index = 2435;
                 ArcherButton.Index = 2438;
-                MonkButton.Index = 2438;
+                MonkButton.Index = 2447;
 
                 switch (_gender)
                 {
