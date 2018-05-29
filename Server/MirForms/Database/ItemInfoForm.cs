@@ -445,7 +445,7 @@ namespace Server
             {
                 if (ITypeFilterComboBox.SelectedItem == null ||
                     ITypeFilterComboBox.SelectedIndex == ITypeFilterComboBox.Items.Count - 1 ||
-                    Envir.ItemInfoList[i].Type == (ItemType)ITypeFilterComboBox.SelectedItem)
+                    Envir.Tr(Envir.ItemInfoList[i].Type.ToString()) == (string)ITypeFilterComboBox.SelectedItem)
                     ItemInfoListBox.Items.Add(Envir.ItemInfoList[i]);
             };
             for (int i = 0; i < selected.Count; i++) ItemInfoListBox.SetSelected(i, selected[i]);
