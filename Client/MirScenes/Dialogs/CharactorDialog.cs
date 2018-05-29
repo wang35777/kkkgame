@@ -76,6 +76,9 @@ namespace Client.MirScenes.Dialogs
                     Libraries.StateItems.Draw(Grid[(int)EquipmentSlot.Helmet].Item.Info.Image, DisplayLocation, Color.White, true, 1F);
                 else
                 {
+                    if (MapObject.User.Class == MirClass.Monk)
+                        return;
+
                     int hair = 441 + MapObject.User.Hair + (MapObject.User.Class == MirClass.Assassin ? 20 : 0) + (MapObject.User.Gender == MirGender.Male ? 0 : 40);
 
                     int offSetX = MapObject.User.Class == MirClass.Assassin ? (MapObject.User.Gender == MirGender.Male ? 6 : 4) : 0;
@@ -689,6 +692,9 @@ namespace Client.MirScenes.Dialogs
                     break;
                 case MirClass.Archer:
                     ClassImage.Index = 104;// + offSet * 5;
+                    break;
+                case MirClass.Monk:
+                    ClassImage.Index = 110;
                     break;
             }
 

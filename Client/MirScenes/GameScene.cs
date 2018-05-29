@@ -730,7 +730,7 @@ namespace Client.MirScenes
                 case Spell.Thrusting:
                     if (CMain.Time < ToggleTime) return;
                     Thrusting = !Thrusting;
-                    ChatDialog.ReceiveChat(Thrusting ? "Use Thrusting." : "Do not use Thrusting.", ChatType.Hint);
+                    ChatDialog.ReceiveChat(Thrusting ? CMain.Tr("Use Thrusting.") : CMain.Tr("Do not use Thrusting."), ChatType.Hint);
                     ToggleTime = CMain.Time + 1000;
                     Network.Enqueue(new C.SpellToggle { Spell = magic.Spell, CanUse = Thrusting });
                     break;
@@ -999,7 +999,7 @@ namespace Client.MirScenes
             if (ShowReviveMessage && CMain.Time > User.DeadTime && User.CurrentAction == MirAction.Dead)
             {
                 ShowReviveMessage = false;
-                MirMessageBox messageBox = new MirMessageBox("You have died, Do you want to revive in town?", MirMessageBoxButtons.YesNo, false);
+                MirMessageBox messageBox = new MirMessageBox(CMain.Tr("You have died, Do you want to revive in town?"), MirMessageBoxButtons.YesNo, false);
 
                 messageBox.YesButton.Click += (o, e) =>
                 {
@@ -3094,7 +3094,7 @@ namespace Client.MirScenes
         }
         private void GainExperience(S.GainExperience p)
         {
-            OutputMessage(string.Format("Experience Gained {0}.", p.Amount));
+            OutputMessage(string.Format(CMain.Tr("Experience Gained {0}."), p.Amount));
             MapObject.User.Experience += p.Amount;
         }
         private void LevelChanged(S.LevelChanged p)
@@ -3103,7 +3103,7 @@ namespace Client.MirScenes
             User.Experience = p.Experience;
             User.MaxExperience = p.MaxExperience;
             User.RefreshStats();
-            OutputMessage("Level Increased!");
+            OutputMessage(CMain.Tr("Level Increased!"));
             User.Effects.Add(new Effect(Libraries.Magic2, 1200, 20, 2000, User));
             SoundManager.PlaySound(SoundList.LevelUp);
             ChatDialog.ReceiveChat("Congratulations! You have leveled up. Your HP and MP have been restored.", ChatType.LevelUp); 
@@ -6266,7 +6266,13 @@ namespace Client.MirScenes
             {
                 count++;
                 if (HoverItem.Info.Type != ItemType.Gem)
-                    text = string.Format(addValue > 0 ? CMain.Tr("MAC + {0}~{1} (+{2})") : CMain.Tr("MAC + {0}~{1} {2}"), minValue, maxValue + addValue, addValue);
+                {
+                    if (addValue > 0)
+                        text = string.Format(CMain.Tr("MAC + {0}~{1} (+{2})"), minValue, maxValue + addValue, addValue);
+                    else
+                        text = string.Format(CMain.Tr("MAC + {0}~{1}"), minValue, maxValue + addValue);
+
+                }
                 else
                     text = string.Format(CMain.Tr("Adds {0} MAC"), minValue + maxValue + addValue);
                 MirLabel MACLabel = new MirLabel

@@ -27,6 +27,7 @@ namespace Client.MirScenes.Dialogs
             Location = Center;
 
             checkBoxSmartAttack = new MirCheckBox { Index = 2086, UnTickedIndex = 2086, TickedIndex = 2087, Parent = this, Location = new Point(301, 69), Library = Libraries.Prguse };
+            //checkBoxSmartAttack.Checked = Settings.smart
             checkBoxSmartAttack.LabelText = "刀刀刺杀";
             checkBoxSmartAttack.Click += CheckBoxSmartAttack;
 
@@ -166,7 +167,7 @@ namespace Client.MirScenes.Dialogs
 
         private void CheckBoxSmartAttack(object sender, EventArgs e)
         {
-            Settings.smartSheild = checkBoxSmartSheild.Checked;
+          //  Settings.smartSheild = checkBoxSmartSheild.Checked;
         }
 
         public void Hide()
