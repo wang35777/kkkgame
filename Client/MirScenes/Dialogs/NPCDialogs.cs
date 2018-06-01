@@ -1693,13 +1693,13 @@ namespace Client.MirScenes.Dialogs
 
             if (RecipeItem.Weight > (MapObject.User.MaxBagWeight - MapObject.User.CurrentBagWeight))
             {
-                GameScene.Scene.ChatDialog.ReceiveChat("You do not have enough weight.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("You do not have enough weight.", ChatType.System);
                 return;
             }
 
             if (max > 1)
             {
-                MirAmountBox amountBox = new MirAmountBox("Craft Amount:", RecipeItem.Info.Image, max, 0, max);
+                MirAmountBox amountBox = new MirAmountBox(CMain.Tr("Craft Amount:"), RecipeItem.Info.Image, max, 0, max);
 
                 amountBox.OKButton.Click += (o, e) =>
                 {
@@ -1707,7 +1707,7 @@ namespace Client.MirScenes.Dialogs
                     {
                         if (!HasCraftItems(RecipeItem, amountBox.Amount))
                         {
-                            GameScene.Scene.ChatDialog.ReceiveChat("You do not have the required ingredients.", ChatType.System);
+                            GameScene.Scene.ChatDialog.ReceiveChatTr("You do not have the required ingredients.", ChatType.System);
                             return;
                         }
 

@@ -100,11 +100,11 @@ namespace Client.MirScenes.Dialogs
             {
                 if (MentorLevel != 0)
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You already have a Mentor.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You already have a Mentor.", ChatType.System);
                     return;
                 }
 
-                string message = "Please enter the name of the person you would like to be your Mentor.";
+                string message = CMain.Tr("Please enter the name of the person you would like to be your Mentor.");
 
                 MirInputBox inputBox = new MirInputBox(message);
 
@@ -133,7 +133,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (MentorName == "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You don't currently have a Mentorship to cancel.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You don't currently have a Mentorship to cancel.", ChatType.System);
                     return;
                 }
 

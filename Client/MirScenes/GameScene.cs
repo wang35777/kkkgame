@@ -3106,7 +3106,7 @@ namespace Client.MirScenes
             OutputMessage(CMain.Tr("Level Increased!"));
             User.Effects.Add(new Effect(Libraries.Magic2, 1200, 20, 2000, User));
             SoundManager.PlaySound(SoundList.LevelUp);
-            ChatDialog.ReceiveChat("Congratulations! You have leveled up. Your HP and MP have been restored.", ChatType.LevelUp); 
+            ChatDialog.ReceiveChat(CMain.Tr("Congratulations! You have leveled up. Your HP and MP have been restored."), ChatType.LevelUp); 
         }
         private void ObjectLeveled(S.ObjectLeveled p)
         {

@@ -51,7 +51,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Size = new Size(230, 32),
                 DrawFormat = TextFormatFlags.HorizontalCenter | TextFormatFlags.WordBreak,
-                Text = string.Format("Select the Key for: {0}", magic.Spell)
+                Text = CMain.Format("Select the Key for: {0}", magic.Name)
             };
 
             NoneButton = new MirButton

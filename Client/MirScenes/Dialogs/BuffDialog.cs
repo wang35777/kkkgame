@@ -443,55 +443,55 @@ namespace Client.MirScenes.Dialogs
             }
             
             if (buffDc > 0)
-                buffText += $"\nIncreased DC: 0-{buffDc}";
+                buffText += CMain.Format("\nIncreased DC: 0-{0}", buffDc);
 
             if (buffMinMc > 0 || buffMc > 0)
-                buffText += $"\nIncreased MC: {buffMinMc}-{buffMc}";
+                buffText += CMain.Format("\nIncreased MC: 0-{0}", buffMc);
 
             if (buffSc > 0)
-                buffText += $"\nIncreased SC: 0-{buffSc}";
+                buffText += CMain.Format("\nIncreased SC: 0-{0}", buffSc);
 
             if (buffMinAc > 0 || buffAc > 0)
-                buffText += $"\nIncreased AC: {buffMinAc}-{buffAc}";
+                buffText += CMain.Format("\nIncreased AC: {0}-{1}", buffMinAc, buffAc);
 
             if (buffMinMac > 0 || buffMac > 0)
-                buffText += $"\nIncreased MAC: {buffMinMac}-{buffMac}";
+                buffText += CMain.Format("\nIncreased MAC: {0}-{1}", buffMinMac, buffMac);
 
             if (buffAttackSpeed > 0 || buffMovementSpeed > 0 || buffAgility > 0)
                 buffText += "\n";
 
             if (buffAttackSpeed > 0)
-                buffText += $"\nIncreased Attack Speed: {buffAttackSpeed}";
+                buffText += CMain.Format("\nIncreased Attack Speed: {0}", buffAttackSpeed);
 
             if (buffMovementSpeed > 0)
-                buffText += $"\nIncreased Movement Speed: {buffMovementSpeed}";
+                buffText += CMain.Format("\nIncreased Movement Speed: {0}", buffMovementSpeed);
 
             if (buffAgility > 0)
-                buffText += $"\nIncreased Agility: {buffAgility}";
+                buffText += CMain.Format("\nIncreased Agility: {0}", buffAgility);
 
             if (buffExp > 0 || buffDrop > 0 || buffGold > 0)
                 buffText += "\n";
 
             if (buffExp > 0)
-                buffText += $"\nExperience Increased By: {buffExp}%";
+                buffText += CMain.Format("\nExperience Increased By: {0}%", buffExp);
 
             if (buffDrop > 0)
-                buffText += $"\nDrop Rate Increased By: {buffDrop}%";
+                buffText += CMain.Format("\nDrop Rate Increased By: {0}%", buffDrop);
 
             if (buffGold > 0)
-                buffText += $"\nGold Rate Increased By: {buffGold}%";
+                buffText += CMain.Format("\nGold Rate Increased By: {0}%", buffGold);
 
             if (buffHealth > 0 || buffMana > 0 || buffBagWeight > 0)
                 buffText += "\n";
 
             if (buffHealth > 0)
-                buffText += $"Increased Health: {buffHealth}";
+                buffText += CMain.Format("Increased Health: {0}", buffHealth);
 
             if (buffMana > 0)
-                buffText += $"Increased Mana: {buffMana}";
+                buffText += CMain.Format("Increased Mana: {0}", buffMana);
 
             if (buffBagWeight > 0)
-                buffText += $"Increased Bag Weight: {buffBagWeight}";
+                buffText += CMain.Format("Increased Bag Weight: {0}", buffBagWeight);
 
             return buffText;
         }

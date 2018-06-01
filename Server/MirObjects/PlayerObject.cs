@@ -621,7 +621,7 @@ namespace Server.MirObjects
                 ReincarnationReady = false;
                 ActiveReincarnation = false;
                 ReincarnationTarget = null;
-                ReceiveChat("Reincarnation failed.", ChatType.System);
+                ReceiveChatTr("Reincarnation failed.", ChatType.System);
             }
             if ((ReincarnationReady || ActiveReincarnation) && (ReincarnationTarget == null || !ReincarnationTarget.Dead))
             {
@@ -665,7 +665,7 @@ namespace Server.MirObjects
 
             if (NewMail)
             {
-                ReceiveChat("New mail has arrived.", ChatType.System);
+                ReceiveChatTr("New mail has arrived.", ChatType.System);
 
                 GetMail();
             }
@@ -673,7 +673,7 @@ namespace Server.MirObjects
             if (Account.ExpandedStorageExpiryDate < Envir.Now && Account.HasExpandedStorage)
             {
                 Account.HasExpandedStorage = false;
-                ReceiveChat("Expanded storage has expired.", ChatType.System);
+                ReceiveChatTr("Expanded storage has expired.", ChatType.System);
                 Enqueue(new S.ResizeStorage { Size = Account.Storage.Length, HasExpandedStorage = Account.HasExpandedStorage, ExpiryTime = Account.ExpandedStorageExpiryDate });
             }
 
@@ -1252,7 +1252,7 @@ namespace Server.MirObjects
                     item.CurrentDura = (ushort)(item.CurrentDura - 1000);
                     Enqueue(new S.DuraChanged { UniqueID = item.UniqueID, CurrentDura = item.CurrentDura });
                     RefreshStats();
-                    ReceiveChat("You have been given a second chance at life", ChatType.System);
+                    ReceiveChatTr("You have been given a second chance at life", ChatType.System);
                     return;
                 }
             }
@@ -1276,7 +1276,7 @@ namespace Server.MirObjects
                     if (weapon != null && weapon.Luck > (Settings.MaxLuck * -1) && Envir.Random.Next(4) == 0)
                     {
                         weapon.Luck--;
-                        hitter.ReceiveChat("Your weapon has been cursed.", ChatType.System);
+                        hitter.ReceiveChatTr("Your weapon has been cursed.", ChatType.System);
                         hitter.Enqueue(new S.RefreshItem { Item = weapon });
                     }
                 }
@@ -2040,7 +2040,7 @@ namespace Server.MirObjects
                 Info.Magics[i].CastTime = Envir.Time > TimeSpend ? Envir.Time - TimeSpend : 0;
             }
             Enqueue(new S.StartGame { Result = 4, Resolution = Settings.AllowedResolution });
-            ReceiveChat("Welcome to the Legend of Mir 2 Crystal Server.", ChatType.Hint);
+            ReceiveChatTr("Welcome to the Legend of Mir 2 Crystal Server.", ChatType.Hint);
 
             if (Settings.TestServer)
             {
@@ -2184,7 +2184,7 @@ namespace Server.MirObjects
 
             if (Info.Mail.Count > Settings.MailCapacity)
             {
-                ReceiveChat("Your mailbox is overflowing.", ChatType.System);
+                ReceiveChatTr("Your mailbox is overflowing.", ChatType.System);
             }
 
             Report.Connected(Connection.IPAddress);
@@ -2199,6 +2199,13 @@ namespace Server.MirObjects
             }
 
         }
+
+        public void ReceiveChatTr(string msg, ChatType hint)
+        {
+            msg = Envir.Tr(msg);
+            ReceiveChat(msg, hint);
+        }
+
         private void StartGameFailed()
         {
             Enqueue(new S.StartGame { Result = 3 });
@@ -14429,19 +14436,19 @@ namespace Server.MirObjects
                     break;
                 case DefaultNPCType.UseItem:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("UseItem({0})"), value[0]);
+                    key = string.Format("UseItem({0})", value[0]);
                     break;
                 case DefaultNPCType.Trigger:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("Trigger({0})"), value[0]);
+                    key = string.Format("Trigger({0})", value[0]);
                     break;
                 case DefaultNPCType.MapCoord:
                     if (value.Length < 3) return;
-                    key = string.Format(Envir.Tr("MapCoord({0},{1},{2})"), value[0], value[1], value[2]);
+                    key = string.Format("MapCoord({0},{1},{2})", value[0], value[1], value[2]);
                     break;
                 case DefaultNPCType.MapEnter:
                     if (value.Length < 1) return;
-                    key = string.Format(Envir.Tr("MapEnter({0})"), value[0]);
+                    key = string.Format("MapEnter({0})", value[0]);
                     break;
                 case DefaultNPCType.Die:
                     key = "Die";

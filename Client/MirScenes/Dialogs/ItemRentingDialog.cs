@@ -150,7 +150,8 @@ namespace Client.MirScenes.Dialogs
 
         public void InputRentalPeroid()
         {
-            var inputBox = new MirInputBox($"How long would you like to rent {RentalItem.Name} to {GameScene.Scene.GuestItemRentDialog.GuestName} for? (1 to 30 days).");
+            var inputBox = new MirInputBox(CMain.Format("How long would you like to rent {0} to {1} for? (1 to 30 days).",
+                RentalItem.Name, GameScene.Scene.GuestItemRentDialog.GuestName));
 
             inputBox.OKButton.Click += (o1, e1) =>
             {
@@ -172,7 +173,7 @@ namespace Client.MirScenes.Dialogs
         public void RefreshInterface()
         {
             _nameLabel.Text = GameScene.User.Name;
-            _rentalPeriodLabel.Text = $"Rental Period: {RentalPeriod} Days";
+            _rentalPeriodLabel.Text = CMain.Format("Rental Period: {0} Days", RentalPeriod);
 
             GameScene.Scene.GuestItemRentDialog.RefreshInterface();
             GameScene.Scene.GuestItemRentingDialog.RefreshInterface();

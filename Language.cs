@@ -22,9 +22,12 @@ public class Language
 
         for (int i = 0; i < contents.Count; ++i)
         {
+            string line = contents[i].Replace("\\n", "\n");
+            if (line.Equals(""))
+                continue;
+
             try
             {
-                string line = contents[i].Replace("\\n", "\n");
                 string[] strs = line.Split('=');
                 if (strs.Length < 2)
                     SaveError(contents[i]);
@@ -38,6 +41,8 @@ public class Language
                            string.Format("[{0}] {1}{2}", DateTime.Now, ex, Environment.NewLine));
             }
         }
+
+        ;
     }
 
     public string Translate(string src)
@@ -72,4 +77,5 @@ public class Language
         }
         return strings;
     }
+
 }

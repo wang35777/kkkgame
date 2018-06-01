@@ -979,11 +979,11 @@ namespace Client.MirScenes.Dialogs
             {
                 string Error = "";
                 if (GameScene.Scene.GuildDialog.SparePoints < BuffInfo.PointsRequirement)
-                    Error = "Insufficient points available.";
+                    Error = CMain.Tr("Insufficient points available.");
                 if (GameScene.Scene.GuildDialog.Level < BuffInfo.LevelRequirement)
-                    Error = "Guild level too low.";
+                    Error = CMain.Tr("Guild level too low.");
                 if (!GameScene.Scene.GuildDialog.GetMyOptions().HasFlag(RankOptions.CanActivateBuff))
-                    Error = "Guild rank does not allow buff activation.";
+                    Error = CMain.Tr("Guild rank does not allow buff activation.");
                 if (Error != "")
                 {
                     MirMessageBox messageBox = new MirMessageBox(Error);
@@ -998,11 +998,11 @@ namespace Client.MirScenes.Dialogs
             {
                 string Error = "";
                 if (Buff.Active)
-                    Error = "Buff is still active.";
+                    Error = CMain.Tr("Buff is still active.");
                 if (GameScene.Scene.GuildDialog.Gold < BuffInfo.ActivationCost)
-                    Error = "Insufficient guild funds.";
+                    Error = CMain.Tr("Insufficient guild funds.");
                 if (!GameScene.Scene.GuildDialog.GetMyOptions().HasFlag(RankOptions.CanActivateBuff))
-                    Error = "Guild rank does not allow buff activation.";
+                    Error = CMain.Tr("Guild rank does not allow buff activation.");
                 if (Error != "")
                 {
                     MirMessageBox messageBox = new MirMessageBox(Error);
@@ -1096,13 +1096,13 @@ namespace Client.MirScenes.Dialogs
                     {
                         if (BuffInfo.LevelRequirement > GameScene.Scene.GuildDialog.Level)
                         {
-                            Buffs[i].Info.Text = "Insufficient Level";
+                            Buffs[i].Info.Text = CMain.Tr("Insufficient Level");
                             Buffs[i].Info.ForeColour = Color.Red;
                             Buffs[i].Icon.Index += 2;
                         }
                         else
                         {
-                            Buffs[i].Info.Text = "Available";
+                            Buffs[i].Info.Text = CMain.Tr("Available");
                             Buffs[i].Info.ForeColour = Buffs[i].Name.ForeColour;
                             Buffs[i].Icon.Index += 2;
                         }
@@ -1113,20 +1113,20 @@ namespace Client.MirScenes.Dialogs
                         if (BuffInfo.TimeLimit > 0)
                         {
                             if (Buff.Active)
-                                Buffs[i].Info.Text = "Counting down.";
+                                Buffs[i].Info.Text = CMain.Tr("Counting down.");
                             else
-                                Buffs[i].Info.Text = "Expired.";
+                                Buffs[i].Info.Text = CMain.Tr("Expired.");
                         }
                         else
-                            Buffs[i].Info.Text = "Obtained.";
+                            Buffs[i].Info.Text = CMain.Tr("Obtained.");
                         Buffs[i].Info.ForeColour = Buffs[i].Name.ForeColour;
                         if (Buff.Active)
                         {
-                            Buffs[i].Obtained.Text = "Active";
+                            Buffs[i].Obtained.Text = CMain.Tr("Active");
                             Buffs[i].Icon.Index += 1;
                         }
                         else
-                            Buffs[i].Obtained.Text = "Inactive";
+                            Buffs[i].Obtained.Text = CMain.Tr("Inactive");
                     }
                 }
             }
@@ -1191,92 +1191,92 @@ namespace Client.MirScenes.Dialogs
 
             if (BuffAc > 0)
             {
-                text += string.Format("Increases AC by: 0-{0}.", BuffAc);
+                text += CMain.Format("Increases AC by: 0-{0}.", BuffAc);
                 if (text != "") text += "\n";
             }
             if (BuffMac > 0)
             {
-                text += string.Format("Increases MAC by: 0-{0}.", BuffMac);
+                text += CMain.Format("Increases MAC by: 0-{0}.", BuffMac);
                 if (text != "") text += "\n";
             }
             if (BuffDc > 0)
             {
-                text += string.Format("Increases DC by: 0-{0}.", BuffDc);
+                text += CMain.Format("Increases DC by: 0-{0}.", BuffDc);
                 if (text != "") text += "\n";
             }
             if (BuffMc > 0)
             {
-                text += string.Format("Increases MC by: 0-{0}.", BuffMc);
+                text += CMain.Format("Increases MC by: 0-{0}.", BuffMc);
                 if (text != "") text += "\n";
             }
             if (BuffSc > 0)
             {
-                text += string.Format("Increases SC by: 0-{0}.", BuffSc);
+                text += CMain.Format("Increases SC by: 0-{0}.", BuffSc);
                 if (text != "") text += "\n";
             }
             if (BuffMaxHp > 0)
             {
-                text += string.Format("Increases Hp by: {0}.", BuffMaxHp);
+                text += CMain.Format("Increases Hp by: {0}.", BuffMaxHp);
                 if (text != "") text += "\n";
             }
             if (BuffMaxMp > 0)
             {
-                text += string.Format("Increases MP by: {0}.", BuffMaxMp);
+                text += CMain.Format("Increases MP by: {0}.", BuffMaxMp);
                 if (text != "") text += "\n";
             }
             if (BuffHpRegen > 0)
             {
-                text += string.Format("Increases Health regen by: {0}.", BuffHpRegen);
+                text += CMain.Format("Increases Health regen by: {0}.", BuffHpRegen);
                 if (text != "") text += "\n";
             }
             if (BuffMPRegen > 0)
             {
-                text += string.Format("Increases Mana regen by: {0}.", BuffMPRegen);
+                text += CMain.Format("Increases Mana regen by: {0}.", BuffMPRegen);
                 if (text != "") text += "\n";
             }
             if (BuffMineRate > 0)
             {
-                text += string.Format("Increases Mining success by: {0}%.", BuffMineRate * 5);
+                text += CMain.Format("Increases Mining success by: {0}%.", BuffMineRate * 5);
                 if (text != "") text += "\n";
             }
             if (BuffGemRate > 0)
             {
-                text += string.Format("Increases Gem success by: {0}%.", BuffGemRate * 5);
+                text += CMain.Format("Increases Gem success by: {0}%.", BuffGemRate * 5);
                 if (text != "") text += "\n";
             }
             if (BuffFishRate > 0)
             {
-                text += string.Format("Increases Fishing success by: {0}%.", BuffFishRate * 5);
+                text += CMain.Format("Increases Fishing success by: {0}%.", BuffFishRate * 5);
                 if (text != "") text += "\n";
             }
             if (BuffExpRate > 0)
             {
-                text += string.Format("Increases Experience by: {0}%.", BuffExpRate);
+                text += CMain.Format("Increases Experience by: {0}%.", BuffExpRate);
                 if (text != "") text += "\n";
             }
             if (BuffCraftRate > 0)
             {
-                text += string.Format("Increases Crafting success by: {0}%.", BuffCraftRate * 5);
+                text += CMain.Format("Increases Crafting success by: {0}%.", BuffCraftRate * 5);
                 if (text != "") text += "\n";
             }
             if (BuffSkillRate > 0)
             {
-                text += string.Format("Increases Skill training by: {0}.", BuffSkillRate);
+                text += CMain.Format("Increases Skill training by: {0}.", BuffSkillRate);
                 if (text != "") text += "\n";
             }
             if (BuffAttack > 0)
             {
-                text += string.Format("Increases Damage by: {0}.", BuffAttack);
+                text += CMain.Format("Increases Damage by: {0}.", BuffAttack);
                 if (text != "") text += "\n";
             }
             if (BuffDropRate > 0)
             {
-                text += string.Format("Droprate increased by: {0}%.", BuffDropRate);
+                text += CMain.Format("Droprate increased by: {0}%.", BuffDropRate);
                 if (text != "") text += "\n";
             }
             if (BuffGoldRate > 0)
             {
-                text += string.Format("Goldrate increased by: 0-{0}.", BuffGoldRate);
+                text += CMain.Format("Goldrate increased by: 0-{0}.", BuffGoldRate);
                 if (text != "") text += "\n";
             }
 
@@ -1315,17 +1315,17 @@ namespace Client.MirScenes.Dialogs
             string ReqText = "";
             if (Buff.LevelRequirement > 0)
             {
-                ReqText += "Minimum Guild Level: " + Buff.LevelRequirement.ToString();
+                ReqText += CMain.Tr("Minimum Guild Level: ") + Buff.LevelRequirement.ToString();
             }
             if (Buff.PointsRequirement > 0)
             {
                 if (ReqText != "") ReqText += "\n";
-                ReqText += "Points Required: " + Buff.PointsRequirement.ToString();
+                ReqText += CMain.Tr("Points Required: ") + Buff.PointsRequirement.ToString();
             }
             if (Buff.ActivationCost > 0)
             {
                 if (ReqText != "") ReqText += "\n";
-                ReqText += "Activation Cost: " + Buff.ActivationCost.ToString() + " gold.";
+                ReqText += CMain.Tr("Activation Cost: ") + Buff.ActivationCost.ToString() + CMain.Tr(" gold.");
                 //if (ReqText != "") ReqText += "\n";
             }
 
@@ -1351,11 +1351,11 @@ namespace Client.MirScenes.Dialogs
 
                 if (activeBuff != null && activeBuff.Active)
                 {
-                    text = string.Format("Time Remaining: {0} minutes", activeBuff.ActiveTimeRemaining);
+                    text = CMain.Format("Time Remaining: {0} minutes", activeBuff.ActiveTimeRemaining);
                 }
                 else
                 {
-                    text = string.Format("Buff Length: {0} minutes.", Buff.TimeLimit.ToString());
+                    text = CMain.Format("Buff Length: {0} minutes.", Buff.TimeLimit.ToString());
                 }
                 MirLabel TimeLabel = new MirLabel
                 {
@@ -1613,7 +1613,7 @@ namespace Client.MirScenes.Dialogs
         {
             if (SelectedIndex >= Ranks.Count) return;
             if (LastGuildMsg > CMain.Time) return;
-            MirMessageBox messageBox = new MirMessageBox(string.Format("Are you sure you want to change the rank of {0} to {1}?", MembersName[Index].Text, Ranks[SelectedIndex].Name), MirMessageBoxButtons.YesNo);
+            MirMessageBox messageBox = new MirMessageBox(CMain.Format("Are you sure you want to change the rank of {0} to {1}?", MembersName[Index].Text, Ranks[SelectedIndex].Name), MirMessageBoxButtons.YesNo);
 
             messageBox.YesButton.Click += (o, a) =>
             {
@@ -1636,7 +1636,7 @@ namespace Client.MirScenes.Dialogs
         {
             if (MembersName[Index].Text == MapControl.User.Name) return;
             if (LastGuildMsg > CMain.Time) return;
-            MirMessageBox messageBox = new MirMessageBox(string.Format("Are you sure you want to kick {0}?", MembersName[Index].Text), MirMessageBoxButtons.YesNo);
+            MirMessageBox messageBox = new MirMessageBox(CMain.Format("Are you sure you want to kick {0}?", MembersName[Index].Text), MirMessageBoxButtons.YesNo);
 
             messageBox.YesButton.Click += (o, a) =>
             {
@@ -1736,13 +1736,13 @@ namespace Client.MirScenes.Dialogs
                             switch (Diff.Days)
                             {
                                 case 0:
-                                    text = "Today";
+                                    text = CMain.Tr("Today");
                                     break;
                                 case 1:
-                                    text = "Yesterday";
+                                    text = CMain.Tr("Yesterday");
                                     break;
                                 default:
-                                    text = Diff.Days + "Days ago";
+                                    text = Diff.Days + CMain.Tr("Days ago");
                                     break;
                             }
                         }
@@ -1986,7 +1986,7 @@ namespace Client.MirScenes.Dialogs
                 MirMessageBox messageBox = new MirMessageBox("Are you sure you want to create a new rank?", MirMessageBoxButtons.YesNo);
                 messageBox.YesButton.Click += (o, a) =>
                 {
-                    Network.Enqueue(new C.EditGuildMember { ChangeType = 4, RankName = String.Format("Rank-{0}", Ranks.Count - 1) });
+                    Network.Enqueue(new C.EditGuildMember { ChangeType = 4, RankName = CMain.Format("Rank-{0}", Ranks.Count - 1) });
                     LastGuildMsg = CMain.Time + 5000;
                 };
                 messageBox.Show();

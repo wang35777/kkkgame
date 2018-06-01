@@ -151,6 +151,12 @@ namespace Client.MirScenes.Dialogs
             PositionBar.OnMoving += PositionBar_OnMoving;
         }
 
+        public void ReceiveChatTr(string v, ChatType system)
+        {
+            v = CMain.Tr(v);
+            ReceiveChat(v, system);
+        }
+
         public void Show()
         {
             Visible = true;

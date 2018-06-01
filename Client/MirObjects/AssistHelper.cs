@@ -39,7 +39,30 @@ namespace Client.MirObjects
         private void autoUseItem()
         {
             if (Settings.autoEatItem)
+            {
                 autoEatHp();
+                autoEatMp();
+            }
+        }
+
+        private void autoEatMp()
+        {
+            UserObject User = UserObject.User;
+            if (UserObject.User.MP * 100 / UserObject.User.MaxMP < Settings.percentMpProtect && CMain.Time - lastUseItemTick > 3000)
+            {
+                lastUseItemTick = CMain.Time;
+                //GameScene.UseItemTime
+                for (int i = 0; i < User.Inventory.Length; i++)
+                {
+                    UserItem item = User.Inventory[i];
+
+                    if (item != null && item.Info != null && item.Info.Name.Equals(Settings.mpItemName))
+                    {
+                        Network.Enqueue(new C.UseItem { UniqueID = item.UniqueID });
+                        break;
+                    }
+                }
+            }
         }
 
         private void autoEatHp()

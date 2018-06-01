@@ -236,7 +236,6 @@
     <Compile Include="MirScenes\Dialogs\ItemRentDialog.cs" />
     <Compile Include="MirScenes\Dialogs\ReportDialog.cs" />
     <Compile Include="MirScenes\Dialogs\SkillBarDialog.cs" />
-    <Compile Include="MirScenes\Dialogs\SkillMapDialog.cs" />
     <Compile Include="MirScenes\Dialogs\TradeDialogs.cs" />
     <Compile Include="MirScenes\Dialogs\TrustMerchantDialog.cs" />
     <Compile Include="MirScenes\GameScene.cs" />

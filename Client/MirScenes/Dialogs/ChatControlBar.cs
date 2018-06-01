@@ -77,7 +77,7 @@ namespace Client.MirScenes.Dialogs
             };
             NormalButton.Click += (o, e) =>
             {
-                ToggleChatFilter("All");
+                ToggleChatFilter(CMain.Tr("All"));
             };
 
             ShoutButton = new MirButton
@@ -89,7 +89,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(34, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Shout"
+                Hint = CMain.Tr("Shout")
             };
             ShoutButton.Click += (o, e) =>
             {
@@ -105,7 +105,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(56, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Whisper"
+                Hint = CMain.Tr("Whisper")
             };
             WhisperButton.Click += (o, e) =>
             {
@@ -125,7 +125,7 @@ namespace Client.MirScenes.Dialogs
             };
             LoverButton.Click += (o, e) =>
             {
-                ToggleChatFilter("Lover");
+                ToggleChatFilter(CMain.Tr("Lover"));
             };
 
             MentorButton = new MirButton
@@ -137,7 +137,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(100, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Mentor"
+                Hint = CMain.Tr("Mentor")
             };
             MentorButton.Click += (o, e) =>
             {
@@ -153,7 +153,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(122, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Group"
+                Hint = CMain.Tr("Group")
             };
             GroupButton.Click += (o, e) =>
             {
@@ -169,7 +169,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(144, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Guild"
+                Hint = CMain.Tr("Guild")
             };
             GuildButton.Click += (o, e) =>
             {
@@ -199,7 +199,7 @@ namespace Client.MirScenes.Dialogs
                 Parent = this,
                 Location = new Point(Settings.Resolution != 800 ? 552 : 328, 1),
                 Sound = SoundList.ButtonA,
-                Hint = "Report",
+                Hint = CMain.Tr("Report"),
                 Visible = false
             };
             ReportButton.Click += (o, e) =>

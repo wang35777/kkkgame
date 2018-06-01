@@ -31,9 +31,9 @@ namespace Client.MirScenes.Dialogs
         public MirTextBox Search;
         public MirImageControl TitleLabel, FilterBackground;
 
-        public string ClassFilter = "Show All";
-        public string TypeFilter = "Show All";
-        public string SectionFilter = "Show All";
+        public string ClassFilter = CMain.Tr("Show All");
+        public string TypeFilter = CMain.Tr("Show All");
+        public string SectionFilter = CMain.Tr("Show All");
 
         public int StartIndex = 0;
         public int Page = 0;
@@ -202,7 +202,7 @@ namespace Client.MirScenes.Dialogs
             };
             allItems.Click += (o, e) =>
             {
-                SectionFilter = "Show All";
+                SectionFilter = CMain.Tr("Show All");
                 ResetTabs();
                 GetCategories();
             };
@@ -217,7 +217,7 @@ namespace Client.MirScenes.Dialogs
             };
             topItems.Click += (o, e) =>
             {
-                SectionFilter = "TopItems";
+                SectionFilter = CMain.Tr("TopItems");
                 ResetTabs();
                 GetCategories();
             };
@@ -232,7 +232,7 @@ namespace Client.MirScenes.Dialogs
             };
             Deals.Click += (o, e) =>
             {
-                SectionFilter = "DealItems";
+                SectionFilter = CMain.Tr("DealItems");
                 ResetTabs();
                 GetCategories();
             };
@@ -247,7 +247,7 @@ namespace Client.MirScenes.Dialogs
             };
             New.Click += (o, e) =>
             {
-                SectionFilter = "NewItems";
+                SectionFilter = CMain.Tr("NewItems");
                 ResetTabs();
                 New.Index = 775;
                 GetCategories();

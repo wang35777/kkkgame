@@ -118,7 +118,7 @@ namespace Client.MirScenes.Dialogs
                         if (GameScene.SelectedCell != null || GameScene.Gold <= 0)
                             return;
 
-                        var amountBox = new MirAmountBox("Rental fee:", 116, GameScene.Gold);
+                        var amountBox = new MirAmountBox(CMain.Tr("Rental fee:"), 116, GameScene.Gold);
 
                         amountBox.OKButton.Click += (c, a) =>
                         {

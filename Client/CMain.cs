@@ -569,6 +569,12 @@ namespace Client
             return lan.Translate(src);
         }
 
+        public static string Format(string format, params object[] args)
+        {
+            format = Tr(format);
+            return string.Format(format, args);
+        }
+
         public static void SetResolution(int width, int height)
         {
             if (Settings.ScreenWidth == width && Settings.ScreenHeight == height) return;

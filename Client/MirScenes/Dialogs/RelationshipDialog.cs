@@ -82,7 +82,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (LoverName != "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You're already married.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You're already married.", ChatType.System);
                     return;
                 }
 
@@ -104,7 +104,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (LoverName == "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You're not married.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You're not married.", ChatType.System);
                     return;
                 }
 
@@ -126,7 +126,7 @@ namespace Client.MirScenes.Dialogs
             {
                 if (LoverName == "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You're not married.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You're not married.", ChatType.System);
                     return;
                 }
 
@@ -148,13 +148,13 @@ namespace Client.MirScenes.Dialogs
             {
                 if (LoverName == "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("You're not married.", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("You're not married.", ChatType.System);
                     return;
                 }
 
                 if (MapName == "")
                 {
-                    GameScene.Scene.ChatDialog.ReceiveChat("Lover is not online", ChatType.System);
+                    GameScene.Scene.ChatDialog.ReceiveChatTr("Lover is not online", ChatType.System);
                     return;
                 }
                 GameScene.Scene.ChatDialog.ChatTextBox.SetFocus();
@@ -227,37 +227,37 @@ namespace Client.MirScenes.Dialogs
 
         public void UpdateInterface()
         {
-            LoverNameLabel.Text = "Lover:  " + LoverName;
+            LoverNameLabel.Text = CMain.Tr("Lover:  ") + LoverName;
 
             if (MapName != "")
             {
-                LoverOnlineLabel.Text = "Location:  " + MapName;
+                LoverOnlineLabel.Text = CMain.Tr("Location:  ") + MapName;
             }
             else
-                LoverOnlineLabel.Text = "Location:  Offline";
+                LoverOnlineLabel.Text = CMain.Tr("Location:  Offline");
 
             if ((LoverName == "") && (Date != null))
             {
                 if (Date < new DateTime(2000))
                 {
-                    LoverDateLabel.Text = "Date: ";
-                    LoverLengthLabel.Text = "Length: ";
+                    LoverDateLabel.Text = CMain.Tr("Date: ");
+                    LoverLengthLabel.Text = CMain.Tr("Length: ");
                 }
                 else
                 {
-                    LoverDateLabel.Text = "Divorced Date:  " + Date.ToShortDateString();
-                    LoverLengthLabel.Text = "Time Since: " + MarriedDays + " Days";
+                    LoverDateLabel.Text = CMain.Tr("Divorced Date:  ") + Date.ToShortDateString();
+                    LoverLengthLabel.Text = CMain.Tr("Time Since: ") + MarriedDays + " Days";
                 }
 
 
-                LoverOnlineLabel.Text = "Location: ";
-                AllowButton.Hint = "Allow/Block Marriage";
+                LoverOnlineLabel.Text = CMain.Tr("Location: ");
+                AllowButton.Hint = CMain.Tr("Allow/Block Marriage");
             }
             else
             {
-                LoverDateLabel.Text = "Marriage Date:  " + Date.ToShortDateString();
-                LoverLengthLabel.Text = "Length: " + MarriedDays.ToString() + " Days";
-                AllowButton.Hint = "Allow/Block Recall";
+                LoverDateLabel.Text = CMain.Tr("Marriage Date:  ") + Date.ToShortDateString();
+                LoverLengthLabel.Text = CMain.Tr("Length: ") + MarriedDays.ToString() + " Days";
+                AllowButton.Hint = CMain.Tr("Allow/Block Recall");
             }
 
 

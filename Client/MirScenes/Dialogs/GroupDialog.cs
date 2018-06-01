@@ -161,12 +161,12 @@ namespace Client.MirScenes.Dialogs
         {
             if (GroupList.Count >= Globals.MaxGroup)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat("Your group already has the maximum number of members.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("Your group already has the maximum number of members.", ChatType.System);
                 return;
             }
             if (GroupList.Count > 0 && GroupList[0] != MapObject.User.Name)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat("You are not the leader of your group.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("You are not the leader of your group.", ChatType.System);
                 return;
             }
 
@@ -177,17 +177,17 @@ namespace Client.MirScenes.Dialogs
         {
             if (GroupList.Count >= Globals.MaxGroup)
             {
-                GameScene.Scene.ChatDialog.ReceiveChat("Your group already has the maximum number of members.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("Your group already has the maximum number of members.", ChatType.System);
                 return;
             }
             if (GroupList.Count > 0 && GroupList[0] != MapObject.User.Name)
             {
 
-                GameScene.Scene.ChatDialog.ReceiveChat("You are not the leader of your group.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("You are not the leader of your group.", ChatType.System);
                 return;
             }
 
-            MirInputBox inputBox = new MirInputBox("Please enter the name of the person you wish to group.");
+            MirInputBox inputBox = new MirInputBox(CMain.Tr("Please enter the name of the person you wish to group."));
 
             inputBox.OKButton.Click += (o, e) =>
             {
@@ -201,11 +201,11 @@ namespace Client.MirScenes.Dialogs
             if (GroupList.Count > 0 && GroupList[0] != MapObject.User.Name)
             {
 
-                GameScene.Scene.ChatDialog.ReceiveChat("You are not the leader of your group.", ChatType.System);
+                GameScene.Scene.ChatDialog.ReceiveChatTr("You are not the leader of your group.", ChatType.System);
                 return;
             }
 
-            MirInputBox inputBox = new MirInputBox("Please enter the name of the person you wish to group.");
+            MirInputBox inputBox = new MirInputBox(CMain.Tr("Please enter the name of the person you wish to group."));
 
             inputBox.OKButton.Click += (o, e) =>
             {
