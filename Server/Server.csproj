@@ -110,6 +110,10 @@
     <Compile Include="..\ClientPackets.cs">
       <Link>MirNetwork\ClientPackets.cs</Link>
     </Compile>
+    <Compile Include="..\ColorDropDownList.cs">
+      <Link>MirForms\ColorDropDownList.cs</Link>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="..\Common.cs">
       <Link>Common.cs</Link>
     </Compile>
@@ -532,7 +536,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>
-</PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

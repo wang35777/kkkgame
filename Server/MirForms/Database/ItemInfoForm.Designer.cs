@@ -31,6 +31,9 @@
             this.ItemInfoPanel = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label57 = new System.Windows.Forms.Label();
+            this.itemColorDropDownList = new ColorDropDownList();
+            this.globalDropNotify_CheckBox = new System.Windows.Forms.CheckBox();
             this.CanAwaken = new System.Windows.Forms.CheckBox();
             this.label56 = new System.Windows.Forms.Label();
             this.TooltipTextBox = new System.Windows.Forms.TextBox();
@@ -191,7 +194,6 @@
             this.ExportSelectedButton = new System.Windows.Forms.Button();
             this.ImportButton = new System.Windows.Forms.Button();
             this.Gameshop_button = new System.Windows.Forms.Button();
-            this.globalDropNotify_CheckBox = new System.Windows.Forms.CheckBox();
             this.ItemInfoPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -227,6 +229,8 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label57);
+            this.tabPage1.Controls.Add(this.itemColorDropDownList);
             this.tabPage1.Controls.Add(this.globalDropNotify_CheckBox);
             this.tabPage1.Controls.Add(this.CanAwaken);
             this.tabPage1.Controls.Add(this.label56);
@@ -282,6 +286,386 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "普通设置";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Location = new System.Drawing.Point(421, 15);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(35, 12);
+            this.label57.TabIndex = 126;
+            this.label57.Text = "颜色:";
+            this.label57.Click += new System.EventHandler(this.label57_Click);
+            // 
+            // itemColorDropDownList
+            // 
+            this.itemColorDropDownList.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.itemColorDropDownList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.itemColorDropDownList.FormattingEnabled = true;
+            this.itemColorDropDownList.Items.AddRange(new object[] {
+            "ActiveBorder",
+            "ActiveCaption",
+            "ActiveCaptionText",
+            "AppWorkspace",
+            "Control",
+            "ControlDark",
+            "ControlDarkDark",
+            "ControlLight",
+            "ControlLightLight",
+            "ControlText",
+            "Desktop",
+            "GrayText",
+            "Highlight",
+            "HighlightText",
+            "HotTrack",
+            "InactiveBorder",
+            "InactiveCaption",
+            "InactiveCaptionText",
+            "Info",
+            "InfoText",
+            "Menu",
+            "MenuText",
+            "ScrollBar",
+            "Window",
+            "WindowFrame",
+            "WindowText",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
+            "YellowGreen",
+            "ButtonFace",
+            "ButtonHighlight",
+            "ButtonShadow",
+            "GradientActiveCaption",
+            "GradientInactiveCaption",
+            "MenuBar",
+            "MenuHighlight",
+            "ActiveBorder",
+            "ActiveCaption",
+            "ActiveCaptionText",
+            "AppWorkspace",
+            "Control",
+            "ControlDark",
+            "ControlDarkDark",
+            "ControlLight",
+            "ControlLightLight",
+            "ControlText",
+            "Desktop",
+            "GrayText",
+            "Highlight",
+            "HighlightText",
+            "HotTrack",
+            "InactiveBorder",
+            "InactiveCaption",
+            "InactiveCaptionText",
+            "Info",
+            "InfoText",
+            "Menu",
+            "MenuText",
+            "ScrollBar",
+            "Window",
+            "WindowFrame",
+            "WindowText",
+            "Transparent",
+            "AliceBlue",
+            "AntiqueWhite",
+            "Aqua",
+            "Aquamarine",
+            "Azure",
+            "Beige",
+            "Bisque",
+            "Black",
+            "BlanchedAlmond",
+            "Blue",
+            "BlueViolet",
+            "Brown",
+            "BurlyWood",
+            "CadetBlue",
+            "Chartreuse",
+            "Chocolate",
+            "Coral",
+            "CornflowerBlue",
+            "Cornsilk",
+            "Crimson",
+            "Cyan",
+            "DarkBlue",
+            "DarkCyan",
+            "DarkGoldenrod",
+            "DarkGray",
+            "DarkGreen",
+            "DarkKhaki",
+            "DarkMagenta",
+            "DarkOliveGreen",
+            "DarkOrange",
+            "DarkOrchid",
+            "DarkRed",
+            "DarkSalmon",
+            "DarkSeaGreen",
+            "DarkSlateBlue",
+            "DarkSlateGray",
+            "DarkTurquoise",
+            "DarkViolet",
+            "DeepPink",
+            "DeepSkyBlue",
+            "DimGray",
+            "DodgerBlue",
+            "Firebrick",
+            "FloralWhite",
+            "ForestGreen",
+            "Fuchsia",
+            "Gainsboro",
+            "GhostWhite",
+            "Gold",
+            "Goldenrod",
+            "Gray",
+            "Green",
+            "GreenYellow",
+            "Honeydew",
+            "HotPink",
+            "IndianRed",
+            "Indigo",
+            "Ivory",
+            "Khaki",
+            "Lavender",
+            "LavenderBlush",
+            "LawnGreen",
+            "LemonChiffon",
+            "LightBlue",
+            "LightCoral",
+            "LightCyan",
+            "LightGoldenrodYellow",
+            "LightGray",
+            "LightGreen",
+            "LightPink",
+            "LightSalmon",
+            "LightSeaGreen",
+            "LightSkyBlue",
+            "LightSlateGray",
+            "LightSteelBlue",
+            "LightYellow",
+            "Lime",
+            "LimeGreen",
+            "Linen",
+            "Magenta",
+            "Maroon",
+            "MediumAquamarine",
+            "MediumBlue",
+            "MediumOrchid",
+            "MediumPurple",
+            "MediumSeaGreen",
+            "MediumSlateBlue",
+            "MediumSpringGreen",
+            "MediumTurquoise",
+            "MediumVioletRed",
+            "MidnightBlue",
+            "MintCream",
+            "MistyRose",
+            "Moccasin",
+            "NavajoWhite",
+            "Navy",
+            "OldLace",
+            "Olive",
+            "OliveDrab",
+            "Orange",
+            "OrangeRed",
+            "Orchid",
+            "PaleGoldenrod",
+            "PaleGreen",
+            "PaleTurquoise",
+            "PaleVioletRed",
+            "PapayaWhip",
+            "PeachPuff",
+            "Peru",
+            "Pink",
+            "Plum",
+            "PowderBlue",
+            "Purple",
+            "Red",
+            "RosyBrown",
+            "RoyalBlue",
+            "SaddleBrown",
+            "Salmon",
+            "SandyBrown",
+            "SeaGreen",
+            "SeaShell",
+            "Sienna",
+            "Silver",
+            "SkyBlue",
+            "SlateBlue",
+            "SlateGray",
+            "Snow",
+            "SpringGreen",
+            "SteelBlue",
+            "Tan",
+            "Teal",
+            "Thistle",
+            "Tomato",
+            "Turquoise",
+            "Violet",
+            "Wheat",
+            "White",
+            "WhiteSmoke",
+            "Yellow",
+            "YellowGreen",
+            "ButtonFace",
+            "ButtonHighlight",
+            "ButtonShadow",
+            "GradientActiveCaption",
+            "GradientInactiveCaption",
+            "MenuBar",
+            "MenuHighlight"});
+            this.itemColorDropDownList.Location = new System.Drawing.Point(462, 11);
+            this.itemColorDropDownList.Name = "itemColorDropDownList";
+            this.itemColorDropDownList.Size = new System.Drawing.Size(121, 22);
+            this.itemColorDropDownList.TabIndex = 125;
+            // 
+            // globalDropNotify_CheckBox
+            // 
+            this.globalDropNotify_CheckBox.AutoSize = true;
+            this.globalDropNotify_CheckBox.Location = new System.Drawing.Point(468, 340);
+            this.globalDropNotify_CheckBox.Name = "globalDropNotify_CheckBox";
+            this.globalDropNotify_CheckBox.Size = new System.Drawing.Size(108, 16);
+            this.globalDropNotify_CheckBox.TabIndex = 124;
+            this.globalDropNotify_CheckBox.Text = "掉落服务器通知";
+            this.globalDropNotify_CheckBox.UseVisualStyleBackColor = true;
+            this.globalDropNotify_CheckBox.CheckedChanged += new System.EventHandler(this.globalDropNotify_CheckBox_CheckedChanged);
             // 
             // CanAwaken
             // 
@@ -793,7 +1177,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(601, 358);
+            this.tabPage2.Size = new System.Drawing.Size(601, 390);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "基础属性";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1481,7 +1865,7 @@
             this.tabPage3.Controls.Add(this.Bind_donttradecheckbox);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(601, 358);
+            this.tabPage3.Size = new System.Drawing.Size(601, 390);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "限制属性";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -1656,7 +2040,7 @@
             this.tabPage4.Controls.Add(this.ParalysischeckBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(601, 358);
+            this.tabPage4.Size = new System.Drawing.Size(601, 390);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "特殊属性";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1907,17 +2291,6 @@
             this.Gameshop_button.UseVisualStyleBackColor = true;
             this.Gameshop_button.Click += new System.EventHandler(this.Gameshop_button_Click);
             // 
-            // globalDropNotify_CheckBox
-            // 
-            this.globalDropNotify_CheckBox.AutoSize = true;
-            this.globalDropNotify_CheckBox.Location = new System.Drawing.Point(468, 340);
-            this.globalDropNotify_CheckBox.Name = "globalDropNotify_CheckBox";
-            this.globalDropNotify_CheckBox.Size = new System.Drawing.Size(128, 17);
-            this.globalDropNotify_CheckBox.TabIndex = 124;
-            this.globalDropNotify_CheckBox.Text = "掉落服务器通知";
-            this.globalDropNotify_CheckBox.UseVisualStyleBackColor = true;
-            this.globalDropNotify_CheckBox.CheckedChanged += new System.EventHandler(this.globalDropNotify_CheckBox_CheckedChanged);
-            // 
             // ItemInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -2120,5 +2493,7 @@
         private System.Windows.Forms.CheckBox unableToDisassemble_CheckBox;
         private System.Windows.Forms.CheckBox globalDropNotify_CheckBox;
         private System.Windows.Forms.CheckBox BlinkcheckBox;
+        private System.Windows.Forms.Label label57;
+        private ColorDropDownList itemColorDropDownList;
     }
 }

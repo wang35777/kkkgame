@@ -2618,8 +2618,6 @@ public class ItemInfo
     public RequiredGender RequiredGender = RequiredGender.None;
     public ItemSet Set;
 
-
-
     public short Shape;
     public byte Weight, Light, RequiredAmount;
 
@@ -2653,6 +2651,7 @@ public class ItemInfo
     public RandomItemStat RandomStats;
     public string ToolTip = string.Empty;
 
+    public KnownColor NameColor;
 
     public bool IsConsumable
     {
@@ -2799,6 +2798,8 @@ public class ItemInfo
             if ((Type == ItemType.Ring) &&  (Unique != SpecialItemMode.None))
                 Bind |= BindMode.NoWeddingRing;
         }
+        if (version >= 78)
+            NameColor = (KnownColor)reader.ReadByte();
     }
 
 
@@ -2883,6 +2884,8 @@ public class ItemInfo
         writer.Write(ToolTip != null);
         if (ToolTip != null)
             writer.Write(ToolTip);
+
+        writer.Write((byte)NameColor);
     }
 
     public static ItemInfo FromText(string text)
@@ -2970,7 +2973,8 @@ public class ItemInfo
             info.ToolTip = data[63];
             info.ToolTip = info.ToolTip.Replace("&^&", "\r\n");
         }
-            
+        if (!Enum.TryParse(data[64], out info.NameColor)) return null;
+
         return info;
 
     }
@@ -2981,7 +2985,7 @@ public class ItemInfo
             +"MinMC, MaxMC, MinSC, MaxSC, Accuracy, Agility, HP, MP, AttackSpeed, Luck, BagWeight, HandWeight, WearWeight, StartItem, Image, Durability, Price,"
             +"StackSize, Effect, Strong, MagicResist, PoisonResist, HealthRecovery, SpellRecovery, PoisonRecovery, HPrate, MPrate, CriticalRate, CriticalDamage, NeedIdentify,"
             +"ShowGroupPickup, MaxAcRate, MaxMacRate, Holy, Freezing, PoisonAttack, ClassBased, LevelBased, (short)Bind, Reflect, HpDrainRate, (short)Unique,"
-            +"RandomStatsId, CanMine, CanFastRun, CanAwakening, TransToolTip";
+            +"RandomStatsId, CanMine, CanFastRun, CanAwakening, TransToolTip, NameColor";
     }
 
     public string ToText()
@@ -3000,12 +3004,12 @@ public class ItemInfo
 
         return string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26}," +
                              "{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{47},{48},{49},{50},{51}," +
-                             "{52},{53},{54},{55},{56},{57},{58},{59},{60},{61},{62},{63}",
+                             "{52},{53},{54},{55},{56},{57},{58},{59},{60},{61},{62},{63},{64}",
             Name, (byte)Type, (byte)Grade, (byte)RequiredType, (byte)RequiredClass, (byte)RequiredGender, (byte)Set, Shape, Weight, Light, RequiredAmount, MinAC, MaxAC, MinMAC, MaxMAC, MinDC, MaxDC,
             MinMC, MaxMC, MinSC, MaxSC, Accuracy, Agility, HP, MP, AttackSpeed, Luck, BagWeight, HandWeight, WearWeight, StartItem, Image, Durability, Price,
             StackSize, Effect, Strong, MagicResist, PoisonResist, HealthRecovery, SpellRecovery, PoisonRecovery, HPrate, MPrate, CriticalRate, CriticalDamage, NeedIdentify,
             ShowGroupPickup, MaxAcRate, MaxMacRate, Holy, Freezing, PoisonAttack, ClassBased, LevelBased, (short)Bind, Reflect, HpDrainRate, (short)Unique,
-            RandomStatsId, CanMine, CanFastRun, CanAwakening, TransToolTip);
+            RandomStatsId, CanMine, CanFastRun, CanAwakening, TransToolTip, (byte)NameColor);
     }
 
     public override string ToString()
@@ -3067,6 +3071,8 @@ public class UserItem
     {
         get { return Count > 1 ? string.Format("{0} ({1})", Info.FriendlyName, Count) : Info.FriendlyName; }
     }
+
+    public KnownColor NameColor;
 
     public UserItem(ItemInfo info)
     {
@@ -3152,6 +3158,11 @@ public class UserItem
 
         if (reader.ReadBoolean())
             RentalInformation = new RentalInformation(reader, version, Customversion);
+
+        if (version < 78)
+            return;
+
+        NameColor = (KnownColor)reader.ReadByte();
     }
 
     public void Save(BinaryWriter writer)
@@ -3217,6 +3228,8 @@ public class UserItem
 
         writer.Write(RentalInformation != null);
         RentalInformation?.Save(writer);
+
+        writer.Write((byte)NameColor);
     }
 
 

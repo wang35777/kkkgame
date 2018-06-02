@@ -1,6 +1,6 @@
 ﻿namespace LoginSrv
 {
-    partial class Form1
+    partial class LForm
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -37,13 +37,14 @@
             this.mainTimer.Enabled = true;
             this.mainTimer.Tick += new System.EventHandler(this.InterfaceTimer_Tick);
             // 
-            // Form1
+            // LForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "LForm";
+            this.Text = "登陆服务器";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }

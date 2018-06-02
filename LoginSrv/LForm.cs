@@ -17,13 +17,13 @@ using S = ServerPackets;
 
 namespace LoginSrv
 {
-    public partial class Form1 : Form
+    public partial class LForm : Form
     {
         private TcpListener _listener;
         public List<MirConnection> Connections = new List<MirConnection>();
         private int _sessionID;
 
-        public Form1()
+        public LForm()
         {
             InitializeComponent();
 
@@ -70,6 +70,11 @@ namespace LoginSrv
                 if (_listener.Server.IsBound)
                     _listener.BeginAcceptTcpClient(Connection, null);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 

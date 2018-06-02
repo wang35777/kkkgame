@@ -237,6 +237,8 @@ namespace Server
             LightTextBox.Text = (info.Light % 15).ToString();
             LightIntensitytextBox.Text = (info.Light / 15).ToString();
 
+            itemColorDropDownList.SelectedItem = info.NameColor;
+
             MinACTextBox.Text = info.MinAC.ToString();
             MaxACTextBox.Text = info.MaxAC.ToString();
             MinMACTextBox.Text = info.MinMAC.ToString();
@@ -1808,6 +1810,11 @@ namespace Server
 
             foreach (var itemInfo in _selectedItemInfos)
                 itemInfo.GlobalDropNotify = globalDropNotify_CheckBox.Checked;
+        }
+
+        private void label57_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

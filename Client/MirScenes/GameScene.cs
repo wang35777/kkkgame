@@ -4590,31 +4590,31 @@ namespace Client.MirScenes
             switch (p.Reason)
             {
                 case 0:
-                    MirMessageBox.Show("You cannot use the TrustMerchant when dead.");
+                    MirMessageBox.ShowTr("You cannot use the TrustMerchant when dead.");
                     break;
                 case 1:
-                    MirMessageBox.Show("You cannot buy from the TrustMerchant without using.");
+                    MirMessageBox.ShowTr("You cannot buy from the TrustMerchant without using.");
                     break;
                 case 2:
-                    MirMessageBox.Show("This item has already been sold.");
+                    MirMessageBox.ShowTr("This item has already been sold.");
                     break;
                 case 3:
-                    MirMessageBox.Show("This item has Expired and cannot be brought.");
+                    MirMessageBox.ShowTr("This item has Expired and cannot be brought.");
                     break;
                 case 4:
-                    MirMessageBox.Show("You do not have enough gold to buy this item.");
+                    MirMessageBox.ShowTr("You do not have enough gold to buy this item.");
                     break;
                 case 5:
-                    MirMessageBox.Show("You do not have enough weight or space spare to buy this item.");
+                    MirMessageBox.ShowTr("You do not have enough weight or space spare to buy this item.");
                     break;
                 case 6:
-                    MirMessageBox.Show("You cannot buy your own items.");
+                    MirMessageBox.ShowTr("You cannot buy your own items.");
                     break;
                 case 7:
-                    MirMessageBox.Show("You are too far away from the Trust Merchant.");
+                    MirMessageBox.ShowTr("You are too far away from the Trust Merchant.");
                     break;
                 case 8:
-                    MirMessageBox.Show("You cannot hold enough gold to get your sale");
+                    MirMessageBox.ShowTr("You cannot hold enough gold to get your sale");
                     break;
             }
 
@@ -5594,7 +5594,7 @@ namespace Client.MirScenes
             MirLabel nameLabel = new MirLabel
             {
                 AutoSize = true,
-                ForeColour = GradeNameColor(HoverItem.Info.Grade),
+                ForeColour = Color.FromKnownColor(item.NameColor), // GradeNameColor(HoverItem.Info.Grade),
                 Location = new Point(4, 4),
                 OutLine = true,
                 Parent = ItemLabel,
