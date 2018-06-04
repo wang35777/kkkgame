@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Server.MirDatabase;
 using Server.MirEnvir;
 using Server.MirObjects;
+using System.Text;
 
 namespace Server
 {
@@ -664,9 +665,10 @@ namespace Server
 
         private void ExportMonsters(IEnumerable<MonsterInfo> monsters)
         {
+            var utf8WithBom = new UTF8Encoding(true);
             var monsterInfos = monsters as MonsterInfo[] ?? monsters.ToArray();
 
-            using (StreamWriter file = new StreamWriter(MonsterListPath, false))
+            using (StreamWriter file = new StreamWriter(MonsterListPath, false, utf8WithBom))
             {
                 file.WriteLine(MonsterInfo.ToHeader());
                 foreach (var item in monsterInfos)

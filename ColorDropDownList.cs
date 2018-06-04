@@ -22,6 +22,9 @@ class ColorDropDownList : ComboBox
 
     private void ColorDropDownList_DrawItem(object sender, DrawItemEventArgs e)
     {
+        if (e.Index < 0)
+            return;
+
         string colorName = (string)this.Items[e.Index];
         Color color = Color.FromName(colorName);
         Rectangle rect = new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width / 4, e.Bounds.Height - 2);

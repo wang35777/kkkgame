@@ -2799,7 +2799,10 @@ public class ItemInfo
                 Bind |= BindMode.NoWeddingRing;
         }
         if (version >= 78)
-            NameColor = (KnownColor)reader.ReadByte();
+        {
+            byte color = reader.ReadByte();
+            NameColor = color == 0 ? KnownColor.White : (KnownColor)color;
+        }
     }
 
 
@@ -3072,8 +3075,6 @@ public class UserItem
         get { return Count > 1 ? string.Format("{0} ({1})", Info.FriendlyName, Count) : Info.FriendlyName; }
     }
 
-    public KnownColor NameColor;
-
     public UserItem(ItemInfo info)
     {
         SoulBoundId = -1;
@@ -3158,11 +3159,6 @@ public class UserItem
 
         if (reader.ReadBoolean())
             RentalInformation = new RentalInformation(reader, version, Customversion);
-
-        if (version < 78)
-            return;
-
-        NameColor = (KnownColor)reader.ReadByte();
     }
 
     public void Save(BinaryWriter writer)
@@ -3228,8 +3224,6 @@ public class UserItem
 
         writer.Write(RentalInformation != null);
         RentalInformation?.Save(writer);
-
-        writer.Write((byte)NameColor);
     }
 
 
@@ -3437,7 +3431,7 @@ public class UserItem
             RefineAdded = RefineAdded,
 
             ExpireInfo = ExpireInfo,
-            RentalInformation = RentalInformation
+            RentalInformation = RentalInformation,
         };
 
         return item;

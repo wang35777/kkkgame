@@ -237,7 +237,7 @@ namespace Server
             LightTextBox.Text = (info.Light % 15).ToString();
             LightIntensitytextBox.Text = (info.Light / 15).ToString();
 
-            itemColorDropDownList.SelectedItem = info.NameColor;
+            itemColorDropDownList.SelectedItem = info.NameColor.ToString();
 
             MinACTextBox.Text = info.MinAC.ToString();
             MaxACTextBox.Text = info.MaxAC.ToString();
@@ -1084,10 +1084,11 @@ namespace Server
 
         private void ExportItems(IEnumerable<ItemInfo> items)
         {
+            var utf8WithBom = new UTF8Encoding(true);
             var itemInfos = items as ItemInfo[] ?? items.ToArray();
             var list = itemInfos.Select(item => item.ToText()).ToList();
             // File.WriteAllLines(ItemListPath, list);
-            using (StreamWriter file = new StreamWriter(ItemListPath, false))
+            using (StreamWriter file = new StreamWriter(ItemListPath, false, utf8WithBom))
             {
                 file.WriteLine(ItemInfo.ToHeader());
                 foreach (ItemInfo item in itemInfos)
@@ -1815,6 +1816,25 @@ namespace Server
         private void label57_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void IColorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ActiveControl != sender) return;
+
+            try
+            {
+                for (int i = 0; i < _selectedItemInfos.Count; i++)
+                {
+                    KnownColor color =  (KnownColor)Enum.Parse(typeof(KnownColor), (string)itemColorDropDownList.SelectedItem);
+                    _selectedItemInfos[i].NameColor = color;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

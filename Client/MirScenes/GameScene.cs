@@ -5594,7 +5594,7 @@ namespace Client.MirScenes
             MirLabel nameLabel = new MirLabel
             {
                 AutoSize = true,
-                ForeColour = Color.FromKnownColor(item.NameColor), // GradeNameColor(HoverItem.Info.Grade),
+                ForeColour = Color.FromKnownColor(item.Info.NameColor), // GradeNameColor(HoverItem.Info.Grade),
                 Location = new Point(4, 4),
                 OutLine = true,
                 Parent = ItemLabel,
